@@ -3,10 +3,10 @@ import React from 'react'
 import './App.css'
 import { Counter } from './features/counter/Counter'
 import logo from './logo.svg'
-import { useGetDocsListQuery } from './services/docs'
+import { useGetPokemonQuery } from './services/pokemonApi'
 
 const App: React.FC = () => {
-  const { data, error, isLoading } = useGetDocsListQuery()
+  const { data, error, isLoading } = useGetPokemonQuery()
 
   return (
     <main className="App">
@@ -40,7 +40,7 @@ const App: React.FC = () => {
           ) : isLoading ? (
             <>Loading...</>
           ) : data ? (
-            data.map((v, i) => {
+            data.results.map((v, i) => {
               return (
                 <span key={i}>
                   {' | '}

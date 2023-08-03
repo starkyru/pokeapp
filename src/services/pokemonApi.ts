@@ -1,17 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import ky from 'ky'
 
-import type { DocsList } from './types'
+import type { NamedAPIResourceList } from '../utils/models'
 
 // Define a service using a base URL and expected endpoints
-export const docsApi = createApi({
+export const pokemonApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.com/api',
+    baseUrl: 'https://pokeapi.co/api/v2/',
     fetchFn: (...args) => ky(...args),
   }),
   endpoints: (builder) => ({
-    getDocsList: builder.query<DocsList, void>({
-      query: () => `/docs_list`,
+    getPokemon: builder.query<NamedAPIResourceList, void>({
+      query: () => `/pokemon`,
     }),
   }),
   reducerPath: 'docsApi',
@@ -19,4 +19,4 @@ export const docsApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetDocsListQuery } = docsApi
+export const { useGetPokemonQuery } = pokemonApi

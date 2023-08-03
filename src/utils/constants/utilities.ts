@@ -1,0 +1,15 @@
+export const LANGUAGES = {
+  CS: 10,
+  DE: 6,
+  EN: 9,
+  ES: 7,
+  FR: 5,
+  IT: 8,
+  JA: 11,
+  JA_HRKT: 1,
+  KO: 3,
+  PT_BR: 13,
+  ROOMAJI: 2,
+  ZH_HANS: 12,
+  ZH_HANT: 4,
+} as const

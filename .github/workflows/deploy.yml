@@ -35,4 +35,4 @@ jobs:
             git status
             yarn
             yarn build
-            pm2 restart homepage
+            pm2 restart pokeapp

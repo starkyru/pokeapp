@@ -2,11 +2,12 @@ import React, { useCallback, useState } from 'react';
 import './App.css';
 import { useSelector } from 'react-redux';
 
+import { FetchWrapper } from './components/FetchWrapper';
 import { PokemonList } from './features/pokemons/components/PokemonList';
 import type { RootState } from './store';
 import type { NamedAPIResource } from './utils/models';
 import type { RequestStatus } from './utils/requestStatus';
-import { isRequestInProgress } from './utils/requestStatus';
+import { isRequestFailed, isRequestInProgress } from './utils/requestStatus';
 
 const App: React.FC = () => {
   const [search, setSearch] = useState('');
@@ -35,8 +36,12 @@ const App: React.FC = () => {
           <input name="search" value={search} onChange={handleSearchChange} />
           <button onClick={handleSearch}>Search</button>
         </div>
-        {isRequestInProgress(pokemonListStatus) ? 'Loading' : false}
-        {filteredList ? <PokemonList list={filteredList} /> : false}
+        <FetchWrapper
+          isLoading={isRequestInProgress(pokemonListStatus)}
+          isError={isRequestFailed(pokemonListStatus)}
+        >
+          {filteredList ? <PokemonList list={filteredList} /> : false}
+        </FetchWrapper>
       </header>
     </main>
   );

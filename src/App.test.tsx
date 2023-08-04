@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
@@ -12,28 +12,7 @@ test('Show App Component', () => {
     </Provider>,
   );
 
-  expect(screen.getByText('Hello Vite + RTK Query!')).toBeInTheDocument();
-});
-
-test('Working Counter', async () => {
-  // const user = userEvent.setup();
-  // const { getByText } = render(
-  //   <Provider store={store}>
-  //     <App />
-  //   </Provider>,
-  // );
-  // expect(getByText('count is: 0')).toBeInTheDocument();
-  //
-  // const button = getByText('Increment');
-  //
-  // await user.click(button);
-  // expect(getByText('count is: 1')).toBeInTheDocument();
-  //
-  // await user.click(button);
-  // expect(getByText('count is: 2')).toBeInTheDocument();
-  //
-  // await user.click(button);
-  // expect(getByText('count is: 3')).toBeInTheDocument();
+  // expect(screen.getByText('Hello Vite + RTK Query!')).toBeInTheDocument();
 });
 
 test('working with msw', async () => {

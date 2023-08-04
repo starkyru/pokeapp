@@ -3,6 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import createSagaMiddleware from 'redux-saga';
 
 import { pokemonListReducer } from '../features/pokemons/store/pokemonList/pokemonListSlice';
+import { searchFieldReducer } from '../features/SearchField/searchFieldSlice';
 import { pokemonApi } from '../services/pokemonApi';
 
 import { mainSaga } from './mainSaga';
@@ -15,6 +16,7 @@ export const store = configureStore({
   reducer: {
     pokemonList: pokemonListReducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
+    searchField: searchFieldReducer,
   },
 });
 

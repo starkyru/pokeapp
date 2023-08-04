@@ -14,7 +14,12 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
       ) : isLoading ? (
         <>Loading...</>
       ) : data ? (
-        data.name
+        <div>
+          {data.name}
+          {data.sprites.front_default && (
+            <img src={data.sprites.front_default} />
+          )}
+        </div>
       ) : (
         false
       )}

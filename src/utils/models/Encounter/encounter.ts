@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Encounter Method
@@ -7,13 +7,13 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface EncounterMethod {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** A good value for sorting */
-  order: number
+  order: number;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }
 
 /**
@@ -23,13 +23,13 @@ export interface EncounterMethod {
  */
 export interface EncounterCondition {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of possible values for this encounter condition */
-  values: NamedAPIResource[]
+  values: NamedAPIResource[];
 }
 
 /**
@@ -40,11 +40,11 @@ export interface EncounterCondition {
  */
 export interface EncounterConditionValue {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The condition this encounter condition value pertains to */
-  condition: NamedAPIResource
+  condition: NamedAPIResource;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }

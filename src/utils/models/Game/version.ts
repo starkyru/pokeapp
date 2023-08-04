@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Version
@@ -7,13 +7,13 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface Version {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The version group this version belongs to */
-  version_group: NamedAPIResource
+  version_group: NamedAPIResource;
 }
 
 /**
@@ -22,19 +22,19 @@ export interface Version {
  */
 export interface VersionGroup {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** Order for sorting. Almost by date of release, except similar versions are grouped together */
-  order: number
+  order: number;
   /** The generation this version was introduced in */
-  generation: NamedAPIResource
+  generation: NamedAPIResource;
   /** A list of methods in which Pokémon can learn moves in this version group */
-  move_learn_methods: NamedAPIResource[]
+  move_learn_methods: NamedAPIResource[];
   /** A list of Pokédexes introduces in this version group */
-  pokedexes: NamedAPIResource[]
+  pokedexes: NamedAPIResource[];
   /** A list of regions that can be visited in this version group */
-  regions: NamedAPIResource[]
+  regions: NamedAPIResource[];
   /** The versions this version group owns */
-  versions: NamedAPIResource[]
+  versions: NamedAPIResource[];
 }

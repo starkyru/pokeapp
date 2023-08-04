@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Pal Park Area
@@ -17,13 +17,13 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface PalParkArea {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of Pokémon encountered in thi pal park area along with details */
-  pokemon_encounters: PalParkEncounterSpecies[]
+  pokemon_encounters: PalParkEncounterSpecies[];
 }
 
 /**
@@ -31,9 +31,9 @@ export interface PalParkArea {
  */
 export interface PalParkEncounterSpecies {
   /** The base score given to the player when this Pokémon is caught during a pal park run */
-  base_score: number
+  base_score: number;
   /** The base rate for encountering this Pokémon in this pal park area */
-  rate: number
+  rate: number;
   /** The Pokémon species being encountered */
-  pokemon_species: NamedAPIResource
+  pokemon_species: NamedAPIResource;
 }

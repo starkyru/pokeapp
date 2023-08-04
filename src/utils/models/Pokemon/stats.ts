@@ -1,4 +1,4 @@
-import type { APIResource, Name, NamedAPIResource } from '../Common'
+import type { APIResource, Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Stat
@@ -7,7 +7,7 @@ import type { APIResource, Name, NamedAPIResource } from '../Common'
  */
 export interface Stat {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
   name:
     | 'hp'
@@ -17,21 +17,21 @@ export interface Stat {
     | 'special-defense'
     | 'speed'
     | 'accuracy'
-    | 'evasion'
+    | 'evasion';
   /** ID the games use for this stat */
-  game_index: number
+  game_index: number;
   /** Whether this stat only exists within a battle */
-  is_battle_only: boolean
+  is_battle_only: boolean;
   /** A detail of moves which affect this stat positively or negatively */
-  affecting_moves: MoveStatAffectSets
+  affecting_moves: MoveStatAffectSets;
   /** A detail of natures which affect this stat positively or negatively */
-  affecting_natures: NatureStatAffectSets
+  affecting_natures: NatureStatAffectSets;
   /** A list of characteristics that are set on a Pokémon when its highest base stat is this stat */
-  characteristics: APIResource[]
+  characteristics: APIResource[];
   /** The class of damage this stat is directly related to */
-  move_damage_class: NamedAPIResource | null
+  move_damage_class: NamedAPIResource | null;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }
 
 /**
@@ -39,18 +39,18 @@ export interface Stat {
  */
 export interface NatureStatAffectSets {
   /** A list of natures and how they change the referenced stat */
-  increase: NamedAPIResource[]
+  increase: NamedAPIResource[];
   /** A list of nature sand how they change the referenced stat */
-  decrease: NamedAPIResource[]
+  decrease: NamedAPIResource[];
 }
 /**
  * Move and how it change the referenced stat
  */
 export interface MoveStatAffect {
   /** The maximum amount of change to the referenced stat */
-  change: -1 | -2 | 1 | 2
+  change: -1 | -2 | 1 | 2;
   /** The move causing the change */
-  move: NamedAPIResource
+  move: NamedAPIResource;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface MoveStatAffect {
  */
 export interface MoveStatAffectSets {
   /** A list of moves and how they change the referenced stat */
-  increase: MoveStatAffect[]
+  increase: MoveStatAffect[];
   /** A list of moves and how they change the referenced stat */
-  decrease: MoveStatAffect[]
+  decrease: MoveStatAffect[];
 }

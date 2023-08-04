@@ -6,7 +6,7 @@ import type {
   NamedAPIResource,
   VersionEncounterDetail,
   VersionGameIndex,
-} from '../Common'
+} from '../Common';
 
 /**
  * ## Pokemon
@@ -18,43 +18,43 @@ import type {
  */
 export interface Pokemon {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The base experience gained for defeating this Pokémon */
-  base_experience: number
+  base_experience: number;
   /** The height of this Pokémon in decimetres */
-  height: number
+  height: number;
   /** Set for exactly one Pokémon used as the default for each species */
-  is_default: boolean
+  is_default: boolean;
   /** Order for sorting. Almost national order, except families are grouped together */
-  order: number
+  order: number;
   /** The weight of this Pokémon in hectograms */
-  weight: number
+  weight: number;
   /** A list of abilities this Pokémon could potentially have */
-  abilities: PokemonAbility[]
+  abilities: PokemonAbility[];
   /** A list of forms this Pokémon can take on */
-  forms: NamedAPIResource[]
+  forms: NamedAPIResource[];
   /** A list of game indices relevent to Pokémon item by generation */
-  game_indices: VersionGameIndex[]
+  game_indices: VersionGameIndex[];
   /** A list of items this Pokémon may be holding when encountered */
-  held_items: PokemonHeldItem[]
+  held_items: PokemonHeldItem[];
   /** A link to a list of location areas, as well as encounter details pertaining to specific versions */
-  location_area_encounters: string
+  location_area_encounters: string;
   /** A list of moves along with learn methods and level details pertaining to specific version groups */
-  moves: PokemonMove[]
+  moves: PokemonMove[];
   /** A set of sprites used to depict this Pokémon in the game.
    * A visual representation of the various sprites can be found at [PokeAPI/sprites](https://github.com/PokeAPI/sprites#sprites)
    */
-  sprites: PokemonSprites
+  sprites: PokemonSprites;
   /** The species this Pokémon belongs to */
-  species: NamedAPIResource
+  species: NamedAPIResource;
   /** A list of base stat values for this Pokémon */
-  stats: PokemonStat[]
+  stats: PokemonStat[];
   /** A list of details showing types this Pokémon has */
-  types: PokemonType[]
+  types: PokemonType[];
   /** Data describing a Pokemon's types in a previous generation. */
-  past_types: PokemonPastType[]
+  past_types: PokemonPastType[];
 }
 
 /**
@@ -62,11 +62,11 @@ export interface Pokemon {
  */
 export interface PokemonAbility {
   /** Whether or not this is a hidden ability */
-  is_hidden: boolean
+  is_hidden: boolean;
   /** The slot this ability occupies in this Pokémon species */
-  slot: number
+  slot: number;
   /** The ability the Pokémon may have */
-  ability: NamedAPIResource
+  ability: NamedAPIResource;
 }
 
 /**
@@ -74,9 +74,9 @@ export interface PokemonAbility {
  */
 export interface PokemonType {
   /** The order the Pokémon's types are listed in */
-  slot: number
+  slot: number;
   /** The type the referenced Pokémon has */
-  type: NamedAPIResource
+  type: NamedAPIResource;
 }
 
 /**
@@ -84,9 +84,9 @@ export interface PokemonType {
  */
 export interface PokemonPastType {
   /** The generation of this Pokémon Type. */
-  generation: NamedAPIResource
+  generation: NamedAPIResource;
   /** Types this of this Pokémon in a previos generation. */
-  types: PokemonType[]
+  types: PokemonType[];
 }
 
 /**
@@ -94,9 +94,9 @@ export interface PokemonPastType {
  */
 export interface PokemonHeldItem {
   /** The item the referenced Pokémon holds */
-  item: NamedAPIResource
+  item: NamedAPIResource;
   /** The details of the different versions in which the item is held */
-  version_details: PokemonHeldItemVersion[]
+  version_details: PokemonHeldItemVersion[];
 }
 
 /**
@@ -104,9 +104,9 @@ export interface PokemonHeldItem {
  */
 export interface PokemonHeldItemVersion {
   /** The version in which the item is held */
-  version: NamedAPIResource
+  version: NamedAPIResource;
   /** How often the item is held */
-  rarity: number
+  rarity: number;
 }
 
 /**
@@ -114,9 +114,9 @@ export interface PokemonHeldItemVersion {
  */
 export interface PokemonMove {
   /** The move the Pokémon can learn */
-  move: NamedAPIResource
+  move: NamedAPIResource;
   /** The details of the version in which the Pokémon can learn the move */
-  version_group_details: PokemonMoveVersion[]
+  version_group_details: PokemonMoveVersion[];
 }
 
 /**
@@ -124,11 +124,11 @@ export interface PokemonMove {
  */
 export interface PokemonMoveVersion {
   /** The method by which the move is learned */
-  move_learn_method: NamedAPIResource
+  move_learn_method: NamedAPIResource;
   /** The version group in which the move is learned */
-  version_group: NamedAPIResource
+  version_group: NamedAPIResource;
   /** The minimum level to learn the move */
-  level_learned_at: number
+  level_learned_at: number;
 }
 
 /**
@@ -136,31 +136,31 @@ export interface PokemonMoveVersion {
  */
 export interface PokemonStat {
   /** The stat the Pokémon has */
-  stat: NamedAPIResource
+  stat: NamedAPIResource;
   /** The effort points (EV) the Pokémon has in the stat */
-  effort: number
+  effort: number;
   /** The base value of the stat */
-  base_stat: number
+  base_stat: number;
 }
 
 /** Version Sprites */
 export interface VersionSprites {
   /** Generation-I Sprites of this Pokémon */
-  'generation-i': GenerationISprites
+  'generation-i': GenerationISprites;
   /** Generation-II Sprites of this Pokémon */
-  'generation-ii': GenerationIISprites
+  'generation-ii': GenerationIISprites;
   /** Generation-III Sprites of this Pokémon */
-  'generation-iii': GenerationIIISprites
+  'generation-iii': GenerationIIISprites;
   /** Generation-IV Sprites of this Pokémon */
-  'generation-iv': GenerationIVSprites
+  'generation-iv': GenerationIVSprites;
   /** Generation-V Sprites of this Pokémon */
-  'generation-v': GenerationVSprites
+  'generation-v': GenerationVSprites;
   /** Generation-VI Sprites of this Pokémon */
-  'generation-vi': GenerationVISprites
+  'generation-vi': GenerationVISprites;
   /** Generation-VII Sprites of this Pokémon */
-  'generation-vii': GenerationVIISprites
+  'generation-vii': GenerationVIISprites;
   /** Generation-VIII Sprites of this Pokémon */
-  'generation-viii': GenerationVIIISprites
+  'generation-viii': GenerationVIIISprites;
 }
 
 /**
@@ -169,387 +169,387 @@ export interface VersionSprites {
  */
 export interface PokemonSprites {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the front in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** Dream World, Official Artwork and Home sprites */
-  other?: OtherPokemonSprites
+  other?: OtherPokemonSprites;
   /** Version Sprites of this Pokémon */
-  versions: VersionSprites
+  versions: VersionSprites;
 }
 
 /** Other Pokemon Sprites (Dream World and Official Artwork sprites) */
 export interface OtherPokemonSprites {
   /** Dream World Sprites of this Pokémon */
-  dream_world: DreamWorld
+  dream_world: DreamWorld;
   /** Official Artwork Sprites of this Pokémon */
-  'official-artwork': OfficialArtwork
+  'official-artwork': OfficialArtwork;
   /** Home Artwork Sprites of this Pokémon */
-  home: Home
+  home: Home;
 }
 
 /** Dream World sprites */
 export interface DreamWorld {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
 }
 
 /** Official Artwork sprites */
 interface OfficialArtwork {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
 }
 
 /** Home sprites */
 export interface Home {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** Generation-I Srites */
 export interface GenerationISprites {
   /** Red-blue sprites of this Pokémon */
-  'red-blue': RedBlue
+  'red-blue': RedBlue;
   /** Yellow sprites of this Pokémon  */
-  yellow: Yellow
+  yellow: Yellow;
 }
 
 /** Red/Blue Sprites */
 export interface RedBlue {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The gray depiction of this Pokémon from the back in battle */
-  back_gray: string | null
+  back_gray: string | null;
   /** The transparent depiction of this Pokémon from the back in battle */
-  back_transparent: string | null
+  back_transparent: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The gray depiction of this Pokémon from the front in battle */
-  front_gray: string | null
+  front_gray: string | null;
   /** The transparent depiction of this Pokémon from the front in battle */
-  front_transparent: string | null
+  front_transparent: string | null;
 }
 
 /** Yellow sprites */
 export interface Yellow {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The gray depiction of this Pokémon from the back in battle */
-  back_gray: string | null
+  back_gray: string | null;
   /** The transparent depiction of this Pokémon from the back in battle */
-  back_transparent: string | null
+  back_transparent: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The gray depiction of this Pokémon from the front in battle */
-  front_gray: string | null
+  front_gray: string | null;
   /** The transparent depiction of this Pokémon from the front in battle */
-  front_transparent: string | null
+  front_transparent: string | null;
 }
 
 /** Generation-II Sprites */
 export interface GenerationIISprites {
   /** Crystal sprites of this Pokémon */
-  crystal: Crystal
+  crystal: Crystal;
   /** Gold sprites of this Pokémon */
-  gold: Gold
+  gold: Gold;
   /** Silver sprites of this Pokémon */
-  silver: Silver
+  silver: Silver;
 }
 
 /** Crystal sprites */
 export interface Crystal {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The back shiny transparent depiction of this Pokémon from the back in battle */
-  back_shiny_transparent: string | null
+  back_shiny_transparent: string | null;
   /** The transparent depiction of this Pokémon from the back in battle */
-  back_transparent: string | null
+  back_transparent: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The front shiny transparent depiction of this Pokémon from the front in battle */
-  front_shiny_transparent: string | null
+  front_shiny_transparent: string | null;
   /** The transparent depiction of this Pokémon from the front in battle */
-  front_transparent: string | null
+  front_transparent: string | null;
 }
 
 export interface Gold {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The transparent depiction of this Pokémon from the front in battle */
-  front_transparent: string | null
+  front_transparent: string | null;
 }
 
 /** Silver sprites */
 interface Silver {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The transparent depiction of this Pokémon from the front in battle */
-  front_transparent: string | null
+  front_transparent: string | null;
 }
 
 /** Generation-III Sprites */
 export interface GenerationIIISprites {
   /** Emerald sprites of this Pokémon */
-  emerald: Emerald
+  emerald: Emerald;
   /** Firered-Leafgreen sprites of this Pokémon */
-  'firered-leafgreen': FireredLeafgreen
+  'firered-leafgreen': FireredLeafgreen;
   /** Ruby-Sapphire sprites of this Pokémon */
-  'ruby-sapphire': RubySapphire
+  'ruby-sapphire': RubySapphire;
 }
 
 /** Emerald sprites */
 export interface Emerald {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
 }
 
 /** FireRead LeafGreen sprites  */
 export interface FireredLeafgreen {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
 }
 
 /** Ruby/Sapphire sprites */
 export interface RubySapphire {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
 }
 
 /** Generation-IV Sprites */
 export interface GenerationIVSprites {
   /** Diamond-pearl Generation sprites of this Pokémon */
-  'diamond-pearl': DiamondPearl
+  'diamond-pearl': DiamondPearl;
   /** Heartgold-Soulsilver sprites of this Pokémon */
-  'heartgold-soulsilver': HeartgoldSoulsilver
+  'heartgold-soulsilver': HeartgoldSoulsilver;
   /** Platinum sprites of this Pokémon */
-  platinum: Platinum
+  platinum: Platinum;
 }
 
 export interface DiamondPearl {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 export interface HeartgoldSoulsilver {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 export interface Platinum {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** Generation-V Sprites */
 export interface GenerationVSprites {
   /** Black-white sprites of this Pokémon */
-  'black-white': BlackWhite
+  'black-white': BlackWhite;
 }
 
 /** Black/White sprites */
 export interface BlackWhite {
   /** The animated sprite of this pokémon */
-  animated: Animated
+  animated: Animated;
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 export interface Animated {
   /** The default depiction of this Pokémon from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The shiny depiction of this Pokémon from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The female depiction of this Pokémon from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** Generation-VI Sprites */
 export interface GenerationVISprites {
   /** Omegaruby-Alphasapphire sprites of this Pokémon */
-  'omegaruby-alphasapphire': OmegarubyAlphasapphire
+  'omegaruby-alphasapphire': OmegarubyAlphasapphire;
   /** X-Y sprites of this Pokémon */
-  'x-y': XY
+  'x-y': XY;
 }
 
 /** Omega/Ruby Alpha/Sapphire sprites */
 export interface OmegarubyAlphasapphire {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** XY sprites */
 export interface XY {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** Generation-VII Sprites */
 export interface GenerationVIISprites {
   /** Icon sprites of this Pokémon */
-  icons: GenerationViiIcons
+  icons: GenerationViiIcons;
   /** Ultra-sun-ultra-moon sprites of this Pokémon */
-  'ultra-sun-ultra-moon': UltraSunUltraMoon
+  'ultra-sun-ultra-moon': UltraSunUltraMoon;
 }
 
 /** Generation VII icons */
 export interface GenerationViiIcons {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
 }
 
 /** Ultra Sun Ultra Moon sprites */
 export interface UltraSunUltraMoon {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny depiction of this Pokémon from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon from the back in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
 }
 
 /** Generation-VIII Sprites */
 export interface GenerationVIIISprites {
   /** Icon sprites of this Pokémon */
-  icons: GenerationViiiIcons
+  icons: GenerationViiiIcons;
 }
 
 /** Generation VIII icons */
 export interface GenerationViiiIcons {
   /** The default depiction of this Pokémon from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon from the front in battle */
-  front_female: string | null
+  front_female: string | null;
 }
 
 /**
@@ -558,9 +558,9 @@ export interface GenerationViiiIcons {
  */
 export interface LocationAreaEncounter {
   /** The location area the referenced Pokémon can be encountered in */
-  location_area: NamedAPIResource
+  location_area: NamedAPIResource;
   /** A list of versions and encounters with the referenced Pokémon that might happen */
-  version_details: VersionEncounterDetail[]
+  version_details: VersionEncounterDetail[];
 }
 
 /**
@@ -571,7 +571,7 @@ export interface LocationAreaEncounter {
  */
 export interface PokemonColor {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
   name:
     | 'black'
@@ -583,11 +583,11 @@ export interface PokemonColor {
     | 'purple'
     | 'red'
     | 'white'
-    | 'yellow'
+    | 'yellow';
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of the Pokémon species that have this color */
-  pokemon_species: NamedAPIResource[]
+  pokemon_species: NamedAPIResource[];
 }
 
 /**
@@ -598,35 +598,35 @@ export interface PokemonColor {
  */
 export interface PokemonForm {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The order in which forms should be sorted within all forms.
    * Multiple forms may have equal order, in which case they should fall back on sorting by name
    */
-  order: number
+  order: number;
   /** The order in which forms should be sorted within a species' forms */
-  form_order: number
+  form_order: number;
   /** True for exactly one form used as the default for each Pokémon */
-  is_default: boolean
+  is_default: boolean;
   /** Whether or not this form can only happen during battle */
-  is_battle_only: boolean
+  is_battle_only: boolean;
   /** Whether or not this form requires mega evolution */
-  is_mega: boolean
+  is_mega: boolean;
   /** The name of this form */
-  form_name: string
+  form_name: string;
   /** The Pokémon that can take on this form */
-  pokemon: NamedAPIResource
+  pokemon: NamedAPIResource;
   /** A set of sprites used to depict this Pokémon form in the game */
-  sprites: PokemonFormSprites
+  sprites: PokemonFormSprites;
   /** The version group this Pokémon form was introduced in */
-  version_group: NamedAPIResource
+  version_group: NamedAPIResource;
   /** The form specific full name of this Pokémon form, or empty if the form does not have a specific name */
-  names: Name[]
+  names: Name[];
   /** The form specific form name of this Pokémon form, or empty if the form does not have a specific name */
-  form_names: Name[]
+  form_names: Name[];
   /** A list of details showing types this Pokémon has */
-  types: PokemonType[]
+  types: PokemonType[];
 }
 
 /**
@@ -634,21 +634,21 @@ export interface PokemonForm {
  */
 export interface PokemonFormSprites {
   /** The default depiction of this Pokémon form from the front in battle */
-  front_default: string | null
+  front_default: string | null;
   /** The female depiction of this Pokémon form from the front in battle */
-  front_female: string | null
+  front_female: string | null;
   /** The shiny depiction of this Pokémon form from the front in battle */
-  front_shiny: string | null
+  front_shiny: string | null;
   /** The shiny female depiction of this Pokémon form from the front in battle */
-  front_shiny_female: string | null
+  front_shiny_female: string | null;
   /** The default depiction of this Pokémon form from the back in battle */
-  back_default: string | null
+  back_default: string | null;
   /** The female depiction of this Pokémon form from the back in battle */
-  back_female: string | null
+  back_female: string | null;
   /** The shiny depiction of this Pokémon form from the back in battle */
-  back_shiny: string | null
+  back_shiny: string | null;
   /** The shiny female depiction of this Pokémon form from the back in battle */
-  back_shiny_female: string | null
+  back_shiny_female: string | null;
 }
 
 /**
@@ -658,7 +658,7 @@ export interface PokemonFormSprites {
  */
 export interface PokemonHabitat {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
   name:
     | 'cave'
@@ -669,11 +669,11 @@ export interface PokemonHabitat {
     | 'rough-terrain'
     | 'sea'
     | 'urban'
-    | 'waters-edge'
+    | 'waters-edge';
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of the Pokémon species that can be found in this habitat */
-  pokemon_species: NamedAPIResource[]
+  pokemon_species: NamedAPIResource[];
 }
 
 /**
@@ -682,15 +682,15 @@ export interface PokemonHabitat {
  */
 export interface PokemonShape {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The "scientific" name of this Pokémon shape listed in different languages */
-  awesome_names: AwesomeName[]
+  awesome_names: AwesomeName[];
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of the Pokémon species that have this shape */
-  pokemon_species: NamedAPIResource[]
+  pokemon_species: NamedAPIResource[];
 }
 
 /**
@@ -698,9 +698,9 @@ export interface PokemonShape {
  */
 export interface AwesomeName {
   /** The localized "scientific" name for an API resource in a specific language */
-  awesome_name: string
+  awesome_name: string;
   /** The language this "scientific" name is in */
-  language: NamedAPIResource
+  language: NamedAPIResource;
 }
 
 /**
@@ -711,59 +711,59 @@ export interface AwesomeName {
  * Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant */
 export interface PokemonSpecies {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage */
-  order: number
+  order: number;
   /** The chance of this Pokémon being female, in eighths; or -1 for genderless */
-  gender_rate: number
+  gender_rate: number;
   /** The base capture rate; up to 255. The higher the number, the easier the catch */
-  capture_rate: number
+  capture_rate: number;
   /** The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon */
-  base_happiness: number
+  base_happiness: number;
   /** Whether or not this is a baby Pokémon */
-  is_baby: boolean
+  is_baby: boolean;
   /** Whether or not this is a legendary Pokémon */
-  is_legendary: boolean
+  is_legendary: boolean;
   /** Whether or not this is a mythical Pokémon */
-  is_mythical: boolean
+  is_mythical: boolean;
   /** Initial hatch counter: one must walk 255 × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's */
-  hatch_counter: number
+  hatch_counter: number;
   /** Whether or not this Pokémon has visual gender differences */
-  has_gender_differences: boolean
+  has_gender_differences: boolean;
   /** Whether or not this Pokémon has multiple forms and can switch between them */
-  forms_switchable: boolean
+  forms_switchable: boolean;
   /** The rate at which this Pokémon species gains levels */
-  growth_rate: NamedAPIResource
+  growth_rate: NamedAPIResource;
   /** A list of Pokedexes and the indexes reserved within them for this Pokémon species */
-  pokedex_numbers: PokemonSpeciesDexEntry[]
+  pokedex_numbers: PokemonSpeciesDexEntry[];
   /** A list of egg groups this Pokémon species is a member of */
-  egg_groups: NamedAPIResource[]
+  egg_groups: NamedAPIResource[];
   /** The color of this Pokémon for Pokédex search */
-  color: NamedAPIResource
+  color: NamedAPIResource;
   /** The shape of this Pokémon for Pokédex search */
-  shape: NamedAPIResource
+  shape: NamedAPIResource;
   /** The Pokémon species that evolves into this Pokemon_species */
-  evolves_from_species: NamedAPIResource
+  evolves_from_species: NamedAPIResource;
   /** The evolution chain this Pokémon species is a member of */
-  evolution_chain: APIResource
+  evolution_chain: APIResource;
   /** The habitat this Pokémon species can be encountered in */
-  habitat: NamedAPIResource
+  habitat: NamedAPIResource;
   /** The generation this Pokémon species was introduced in */
-  generation: NamedAPIResource
+  generation: NamedAPIResource;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of encounters that can be had with this Pokémon species in pal park */
-  pal_park_encounters: PalParkEncounterArea[]
+  pal_park_encounters: PalParkEncounterArea[];
   /** A list of flavor text entries for this Pokémon species */
-  flavor_text_entries: FlavorText[]
+  flavor_text_entries: FlavorText[];
   /** Descriptions of different forms Pokémon take on within the Pokémon species */
-  form_descriptions: Description[]
+  form_descriptions: Description[];
   /** The genus of this Pokémon species listed in multiple languages */
-  genera: Genus[]
+  genera: Genus[];
   /** A list of the Pokémon that exist within this Pokémon species */
-  varieties: PokemonSpeciesVariety[]
+  varieties: PokemonSpeciesVariety[];
 }
 
 /**
@@ -771,17 +771,17 @@ export interface PokemonSpecies {
  */
 export interface Genus {
   /** The localized genus for the referenced Pokémon species */
-  genus: string
+  genus: string;
   /** The language this genus is in */
-  language: NamedAPIResource
+  language: NamedAPIResource;
 }
 
 /** Pokedexes and the indexes reserved within them for the given Pokémon species */
 export interface PokemonSpeciesDexEntry {
   /** The index number within the Pokédex */
-  entry_number: number
+  entry_number: number;
   /** The Pokédex the referenced Pokémon species can be found in */
-  pokedex: NamedAPIResource
+  pokedex: NamedAPIResource;
 }
 
 /**
@@ -789,11 +789,11 @@ export interface PokemonSpeciesDexEntry {
  */
 export interface PalParkEncounterArea {
   /** The base score given to the player when the referenced Pokémon is caught during a pal park run */
-  base_score: number
+  base_score: number;
   /** The base rate for encountering the referenced Pokémon in this pal park area */
-  rate: number
+  rate: number;
   /** The pal park area where this encounter happens */
-  area: NamedAPIResource
+  area: NamedAPIResource;
 }
 
 /**
@@ -801,7 +801,7 @@ export interface PalParkEncounterArea {
  */
 export interface PokemonSpeciesVariety {
   /** Whether this variety is the default variety */
-  is_default: boolean
+  is_default: boolean;
   /** The Pokémon variety */
-  pokemon: NamedAPIResource
+  pokemon: NamedAPIResource;
 }

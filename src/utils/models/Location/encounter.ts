@@ -1,4 +1,4 @@
-import type { NamedAPIResource, VersionEncounterDetail } from '../Common'
+import type { NamedAPIResource, VersionEncounterDetail } from '../Common';
 
 /**
  * Method in which Pokémon may be encountered in the given area
@@ -6,9 +6,9 @@ import type { NamedAPIResource, VersionEncounterDetail } from '../Common'
  */
 export interface EncounterMethodRate {
   /** The method in which Pokémon may be encountered in an area */
-  encounter_method: NamedAPIResource
+  encounter_method: NamedAPIResource;
   /** The chance of the encounter to occur on a version of the game */
-  version_details: EncounterVersionDetails[]
+  version_details: EncounterVersionDetails[];
 }
 
 /**
@@ -16,9 +16,9 @@ export interface EncounterMethodRate {
  */
 export interface EncounterVersionDetails {
   /** The chance of an encounter to occur */
-  rate: number
+  rate: number;
   /** The version of the game in which the encounter can occur with the given chance */
-  version: NamedAPIResource
+  version: NamedAPIResource;
 }
 
 /**
@@ -26,7 +26,7 @@ export interface EncounterVersionDetails {
  */
 export interface PokemonEncounter {
   /** The Pokémon being encountered */
-  pokemon: NamedAPIResource
+  pokemon: NamedAPIResource;
   /** A list of versions and encounters with Pokémon that might happen in the referenced location area */
-  version_details: VersionEncounterDetail[]
+  version_details: VersionEncounterDetail[];
 }

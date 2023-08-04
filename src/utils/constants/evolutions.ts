@@ -9,4 +9,4 @@ export const EVOLUTION_TRIGGERS = {
   TOWER_OF_WATER: 7,
   TRADE: 2,
   USE_ITEM: 3,
-} as const
+} as const;

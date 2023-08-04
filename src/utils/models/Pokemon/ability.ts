@@ -1,4 +1,4 @@
-import type { Effect, Name, NamedAPIResource, VerboseEffect } from '../Common'
+import type { Effect, Name, NamedAPIResource, VerboseEffect } from '../Common';
 
 /**
  * ## Ability
@@ -8,23 +8,23 @@ import type { Effect, Name, NamedAPIResource, VerboseEffect } from '../Common'
  */
 export interface Ability {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** Whether or not this ability originated in the main series of the video games */
-  is_main_series: boolean
+  is_main_series: boolean;
   /** The generation this ability originated in */
-  generation: NamedAPIResource
+  generation: NamedAPIResource;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The effect of this ability listed in different languages */
-  effect_entries: VerboseEffect[]
+  effect_entries: VerboseEffect[];
   /** The list of previous effects this ability has had across version groups */
-  effect_changes: AbilityEffectChange[]
+  effect_changes: AbilityEffectChange[];
   /** The flavor text of this ability listed in different languages */
-  flavor_text_entries: AbilityFlavorText[]
+  flavor_text_entries: AbilityFlavorText[];
   /** A list of Pokémon that could potentially have this ability */
-  pokemon: AbilityPokemon[]
+  pokemon: AbilityPokemon[];
 }
 
 /**
@@ -32,9 +32,9 @@ export interface Ability {
  */
 export interface AbilityEffectChange {
   /** The previous effect of this ability listed in different languages */
-  effect_entries: Effect[]
+  effect_entries: Effect[];
   /** The version group in which the previous effect of this ability originated */
-  version_group: NamedAPIResource
+  version_group: NamedAPIResource;
 }
 
 /**
@@ -42,11 +42,11 @@ export interface AbilityEffectChange {
  */
 export interface AbilityFlavorText {
   /** The localized name for an API resource in a specific language */
-  flavor_text: string
+  flavor_text: string;
   /** The language this text resource is in */
-  language: NamedAPIResource
+  language: NamedAPIResource;
   /** The version group that uses this flavor text */
-  version_group: NamedAPIResource
+  version_group: NamedAPIResource;
 }
 
 /**
@@ -54,12 +54,12 @@ export interface AbilityFlavorText {
  */
 export interface AbilityPokemon {
   /** Whether or not this a hidden ability for the referenced Pokémon */
-  is_hidden: boolean
+  is_hidden: boolean;
   /**
    * Pokémon have 3 ability 'slots' which hold references to possible abilities they could have.
    * This is the slot of this ability for the referenced pokemon
    */
-  slot: number
+  slot: number;
   /** The Pokémon this ability could belong to */
-  pokemon: NamedAPIResource
+  pokemon: NamedAPIResource;
 }

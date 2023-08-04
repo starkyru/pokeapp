@@ -1,29 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 
-import './index.css'
-import App from './App'
-import { store } from './store'
+import './index.css';
+import App from './App';
+import { store } from './store/store';
 
-const root = ReactDOM.createRoot(document.getElementById('root')!)
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 if (process.env.NODE_ENV === 'development') {
   import('../mocks/browser')
     .then(({ worker }) => {
-      worker.start()
+      worker.start();
     })
     .then(() => {
       root.render(
         <Provider store={store}>
           <App />
-        </Provider>
-      )
-    })
+        </Provider>,
+      );
+    });
 } else {
   root.render(
     <Provider store={store}>
       <App />
-    </Provider>
-  )
+    </Provider>,
+  );
 }

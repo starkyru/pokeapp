@@ -12,4 +12,4 @@ export const LANGUAGES = {
   ROOMAJI: 2,
   ZH_HANS: 12,
   ZH_HANT: 4,
-} as const
+} as const;

@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Berry
@@ -9,29 +9,29 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface Berry {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked */
-  growth_time: number
+  growth_time: number;
   /** The maximum number of these berries that can grow on one tree in Generation IV */
-  max_harvest: number
+  max_harvest: number;
   /** The power of the move "Natural Gift" when used with this Berry */
-  natural_gift_power: number
+  natural_gift_power: number;
   /** The size of this Berry, in millimeters */
-  size: number
+  size: number;
   /** The smoothness of this Berry, used in making Pokéblocks or Poffins */
-  smoothness: number
+  smoothness: number;
   /** The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly */
-  soil_dryness: number
+  soil_dryness: number;
   /** The firmness of this berry, used in making Pokéblocks or Poffins */
-  firmness: NamedAPIResource
+  firmness: NamedAPIResource;
   /** A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry */
-  flavors: BerryFlavorMap[]
+  flavors: BerryFlavorMap[];
   /** Berries are actually items. This is a reference to the item specific data for this berry */
-  item: NamedAPIResource
+  item: NamedAPIResource;
   /** The type inherited by "Natural Gift" when used with this Berry */
-  natural_gift_type: NamedAPIResource
+  natural_gift_type: NamedAPIResource;
 }
 
 /**
@@ -39,9 +39,9 @@ export interface Berry {
  */
 export interface BerryFlavorMap {
   /** How powerful the referenced flavor is for this berry */
-  potency: number
+  potency: number;
   /** The referenced berry flavor */
-  flavor: NamedAPIResource
+  flavor: NamedAPIResource;
 }
 
 /**
@@ -52,15 +52,15 @@ export interface BerryFlavorMap {
  */
 export interface BerryFlavor {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: 'spicy' | 'dry' | 'sweet' | 'bitter' | 'sour'
+  name: 'spicy' | 'dry' | 'sweet' | 'bitter' | 'sour';
   /** A list of the berries with this flavor */
-  berries: FlavorBerryMap[]
+  berries: FlavorBerryMap[];
   /** The contest type that correlates with this berry flavor */
-  contest_type: NamedAPIResource
+  contest_type: NamedAPIResource;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }
 
 /**
@@ -68,9 +68,9 @@ export interface BerryFlavor {
  */
 export interface FlavorBerryMap {
   /** How powerful the referenced flavor is for this berry */
-  potency: number
+  potency: number;
   /** The berry with the referenced flavor */
-  berry: NamedAPIResource
+  berry: NamedAPIResource;
 }
 
 /**
@@ -81,11 +81,11 @@ export interface FlavorBerryMap {
  */
 export interface BerryFirmness {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: 'very-soft' | 'soft' | 'hard' | 'very-hard' | 'super-hard'
+  name: 'very-soft' | 'soft' | 'hard' | 'very-hard' | 'super-hard';
   /** A list of the berries with this firmness */
-  berries: NamedAPIResource[]
+  berries: NamedAPIResource[];
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }

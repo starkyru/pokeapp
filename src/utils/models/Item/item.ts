@@ -8,14 +8,14 @@ import type {
   NamedAPIResource,
   VerboseEffect,
   VersionGroupFlavorText,
-} from '../Common'
+} from '../Common';
 
 /**
  * Sprites used to depict the given item in the game
  */
 export interface ItemSprites {
   /** The default depiction of this item */
-  default: string
+  default: string;
 }
 
 /**
@@ -23,9 +23,9 @@ export interface ItemSprites {
  */
 export interface ItemHolderPokemon {
   /** The Pokémon that holds this item */
-  pokemon: NamedAPIResource
+  pokemon: NamedAPIResource;
   /** The details for the version that this item is held in by the Pokémon */
-  version_details: ItemHolderPokemonVersionDetail[]
+  version_details: ItemHolderPokemonVersionDetail[];
 }
 
 /**
@@ -33,9 +33,9 @@ export interface ItemHolderPokemon {
  */
 export interface ItemHolderPokemonVersionDetail {
   /** How often this Pokémon holds this item in this version */
-  rarity: number
+  rarity: number;
   /** The version that this item is held in by the Pokémon */
-  version: NamedAPIResource
+  version: NamedAPIResource;
 }
 
 /**
@@ -44,15 +44,15 @@ export interface ItemHolderPokemonVersionDetail {
  */
 export interface ItemAttribute {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** A list of items that have this attribute */
-  items: NamedAPIResource[]
+  items: NamedAPIResource[];
   /** The name of this item attribute listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The description of this item attribute listed in different languages */
-  descriptions: Description[]
+  descriptions: Description[];
 }
 
 /**
@@ -61,15 +61,15 @@ export interface ItemAttribute {
  */
 export interface ItemCategory {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** A list of items that are a part of this category */
-  items: NamedAPIResource[]
+  items: NamedAPIResource[];
   /** The name of this item category listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The pocket items in this category would be put in */
-  pocket: NamedAPIResource
+  pocket: NamedAPIResource;
 }
 
 /**
@@ -78,13 +78,13 @@ export interface ItemCategory {
  */
 export interface ItemFlingEffect {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The result of this fling effect listed in different languages */
-  effect_entries: Effect[]
+  effect_entries: Effect[];
   /** A list of items that have this fling effect */
-  items: NamedAPIResource[]
+  items: NamedAPIResource[];
 }
 
 /**
@@ -93,13 +93,13 @@ export interface ItemFlingEffect {
  */
 export interface ItemPocket {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** A list of item categories that are relevant to this item pocket */
-  categories: NamedAPIResource[]
+  categories: NamedAPIResource[];
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
 }
 
 /**
@@ -110,33 +110,33 @@ export interface ItemPocket {
  */
 export interface Item {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The price of this item in stores */
-  cost: number
+  cost: number;
   /** The power of the move Fling when used with this item. */
-  fling_power: number | null
+  fling_power: number | null;
   /** The effect of the move Fling when used with this item */
-  fling_effect: NamedAPIResource | null
+  fling_effect: NamedAPIResource | null;
   /** A list of attributes this item has */
-  attributes: NamedAPIResource[]
+  attributes: NamedAPIResource[];
   /** The category of items this item falls into */
-  category: NamedAPIResource
+  category: NamedAPIResource;
   /** The effect of this ability listed in different languages */
-  effect_entries: VerboseEffect[]
+  effect_entries: VerboseEffect[];
   /** The flavor text of this ability listed in different languages */
-  flavor_text_entries: VersionGroupFlavorText[]
+  flavor_text_entries: VersionGroupFlavorText[];
   /** A list of game indices relevent to this item by generation */
-  game_indices: GenerationGameIndex[]
+  game_indices: GenerationGameIndex[];
   /** The name of this item listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A set of sprites used to depict this item in the game */
-  sprites: ItemSprites
+  sprites: ItemSprites;
   /** A list of Pokémon that might be found in the wild holding this item */
-  held_by_pokemon: ItemHolderPokemon[]
+  held_by_pokemon: ItemHolderPokemon[];
   /** An evolution chain this item requires to produce a bay during mating */
-  baby_trigger_for: APIResource | null
+  baby_trigger_for: APIResource | null;
   /** A list of the machines related to this item */
-  machines: MachineVersionDetail[]
+  machines: MachineVersionDetail[];
 }

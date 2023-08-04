@@ -8,7 +8,7 @@ export const REGIONS = {
   KANTO: 1,
   SINNOH: 4,
   UNOVA: 5,
-} as const
+} as const;
 
 export const PAL_PARK_AREAS = {
   FIELD: 2,
@@ -16,4 +16,4 @@ export const PAL_PARK_AREAS = {
   MOUNTAIN: 3,
   POND: 4,
   SEA: 5,
-} as const
+} as const;

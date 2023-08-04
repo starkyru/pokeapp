@@ -1,13 +1,13 @@
-import type { Description, NamedAPIResource } from '../Common'
+import type { Description, NamedAPIResource } from '../Common';
 
 /**
  * Levels and the amount of experienced needed to atain them based on the given growth rate.
  */
 export interface GrowthRateExperienceLevel {
   /** The level gained. */
-  level: number
+  level: number;
   /** The amount of experience required to reach the referenced level. */
-  experience: number
+  experience: number;
 }
 
 /**
@@ -17,7 +17,7 @@ export interface GrowthRateExperienceLevel {
  */
 export interface GrowthRate {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
   name:
     | 'slow'
@@ -25,13 +25,13 @@ export interface GrowthRate {
     | 'fast'
     | 'medium-slow'
     | 'slow-then-very-fast'
-    | 'fast-then-very-slow'
+    | 'fast-then-very-slow';
   /** The formula used to calculate the rate at which the Pokémon species gains level */
-  formula: string
+  formula: string;
   /** The descriptions of this characteristic listed in different languages */
-  descriptions: Description[]
+  descriptions: Description[];
   /** A list of levels and the amount of experienced needed to atain them based on this growth rate. */
-  levels: GrowthRateExperienceLevel[]
+  levels: GrowthRateExperienceLevel[];
   /** A list of Pokémon species that gain levels at this growth rate */
-  pokemon_species: NamedAPIResource[]
+  pokemon_species: NamedAPIResource[];
 }

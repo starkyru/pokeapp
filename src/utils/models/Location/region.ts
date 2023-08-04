@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Region
@@ -9,17 +9,17 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface Region {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** A list of locations that can be found in this region */
-  locations: NamedAPIResource[]
+  locations: NamedAPIResource[];
   /** The name for this resource */
-  name: string
+  name: string;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The generation this region was introduced in */
-  main_generation: NamedAPIResource
+  main_generation: NamedAPIResource;
   /** A list of pokédexes that catalogue Pokémon in this region */
-  pokedexes: NamedAPIResource[]
+  pokedexes: NamedAPIResource[];
   /** A list of version groups where this region can be visited */
-  version_groups: NamedAPIResource[]
+  version_groups: NamedAPIResource[];
 }

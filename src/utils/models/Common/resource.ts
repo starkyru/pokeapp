@@ -3,9 +3,9 @@
  */
 export interface NamedAPIResource {
   /** The name of the referenced resource */
-  name: string
+  name: string;
   /** The URL of the referenced resource */
-  url: string
+  url: string;
 }
 
 /**
@@ -15,17 +15,17 @@ export interface NamedAPIResource {
  */
 export interface NamedAPIResourceList {
   /** The total number of resources available from this API */
-  count: number
+  count: number;
   /** The URL for the next page in the list */
-  next: string | null
+  next: string | null;
   /** The URL for the previous page in the list */
-  previous: string | null
+  previous: string | null;
   /** A list of named API resources */
-  results: NamedAPIResource[]
+  results: NamedAPIResource[];
 }
 
 /** An URL for another resource in the API */
 export interface APIResource {
   /** The URL of the referenced resource */
-  url: string
+  url: string;
 }

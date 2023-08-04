@@ -1,6 +1,6 @@
-import type { GenerationGameIndex, Name, NamedAPIResource } from '../Common'
+import type { GenerationGameIndex, Name, NamedAPIResource } from '../Common';
 
-import type { EncounterMethodRate, PokemonEncounter } from './encounter'
+import type { EncounterMethodRate, PokemonEncounter } from './encounter';
 
 /**
  * ## Location
@@ -10,17 +10,17 @@ import type { EncounterMethodRate, PokemonEncounter } from './encounter'
  */
 export interface Location {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The region this location can be found in */
-  region: NamedAPIResource | null
+  region: NamedAPIResource | null;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of game indices relevent to this location by generation */
-  game_indices: GenerationGameIndex[]
+  game_indices: GenerationGameIndex[];
   /** Areas that can be found within this location */
-  areas: NamedAPIResource[]
+  areas: NamedAPIResource[];
 }
 
 /**
@@ -31,17 +31,17 @@ export interface Location {
  */
 export interface LocationArea {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** The internal id of an API resource within game data */
-  game_index: number
+  game_index: number;
   /** A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game */
-  encounter_method_rates: EncounterMethodRate[]
+  encounter_method_rates: EncounterMethodRate[];
   /** The region this location area can be found in */
-  location: NamedAPIResource
+  location: NamedAPIResource;
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of Pokémon that can be encountered in this area along with version specific details about the encounter */
-  pokemon_encounters: PokemonEncounter[]
+  pokemon_encounters: PokemonEncounter[];
 }

@@ -1,33 +1,33 @@
 export const MOVE_AILMENTS = {
   BURN: 4,
   CONFUSION: 6,
-  FREEZE: 3,
-  INFATUATION: 7,
-  NIGHTMARE: 9,
   DISABLE: 13,
-  NONE: 0,
-  HEAL_BLOCK: 15,
-  PARALYSIS: 1,
-  LEECH_SEED: 18,
-  UNKNOWN: -1,
   EMBARGO: 19,
+  FREEZE: 3,
+  HEAL_BLOCK: 15,
+  INFATUATION: 7,
   INGRAIN: 21,
-  SLEEP: 2,
+  LEECH_SEED: 18,
+  NIGHTMARE: 9,
+  NONE: 0,
   NO_TYPE_IMMUNITY: 17,
+  PARALYSIS: 1,
   PERISH_SONG: 20,
   POISON: 5,
   SILENCE: 24,
+  SLEEP: 2,
   TAR_SHOT: 42,
-  TRAP: 8,
   TORMENT: 12,
+  TRAP: 8,
+  UNKNOWN: -1,
   YAWN: 14,
-} as const
+} as const;
 
 export const MOVE_BATTLE_STYLES = {
   ATTACK: 1,
   DEFENSE: 2,
   SUPPORT: 3,
-} as const
+} as const;
 
 export const MOVE_CATEGORIES = {
   AILMENT: 1,
@@ -44,13 +44,13 @@ export const MOVE_CATEGORIES = {
   SWAGGER: 5,
   UNIQUE: 13,
   WHOLE_FIELD_EFFECT: 10,
-} as const
+} as const;
 
 export const MOVE_DAMAGE_CLASSES = {
   PHYSICAL: 2,
   SPECIAL: 3,
   STATUS: 1,
-} as const
+} as const;
 
 export const MOVE_LEARN_METHODS = {
   COLOSSEUM_PURIFICATION: 7,
@@ -63,22 +63,22 @@ export const MOVE_LEARN_METHODS = {
   TUTOR: 3,
   XD_PURIFICATION: 9,
   XD_SHADOW: 8,
-} as const
+} as const;
 
 export const MOVE_TARGETS = {
   ALLY: 3,
+  ALL_ALLIES: 15,
   ALL_OPPONENTS: 11,
   ALL_OTHER_POKEMON: 9,
+  ALL_POKEMON: 14,
   ENTIRE_FIELD: 12,
   OPPONENTS_FIELD: 6,
-  ALL_POKEMON: 14,
   RANDOM_OPPONENT: 8,
-  ALL_ALLIES: 15,
-  SELECTED_POKEMON_ME_FIRST: 2,
   SELECTED_POKEMON: 10,
+  SELECTED_POKEMON_ME_FIRST: 2,
   SPECIFIC_MOVE: 1,
   USER: 7,
   USERS_FIELD: 4,
   USER_AND_ALIES: 13,
   USER_OR_ALLY: 5,
-} as const
+} as const;

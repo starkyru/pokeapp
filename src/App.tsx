@@ -1,67 +1,45 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react';
+import './App.css';
+import { useSelector } from 'react-redux';
 
-import './App.css'
-import { Counter } from './features/counter/Counter'
-import logo from './logo.svg'
-import { useGetPokemonQuery } from './services/pokemonApi'
+import { PokemonList } from './features/pokemons/components/PokemonList';
+import type { RootState } from './store';
+import type { NamedAPIResource } from './utils/models';
+import type { RequestStatus } from './utils/requestStatus';
+import { isRequestInProgress } from './utils/requestStatus';
 
 const App: React.FC = () => {
-  const { data, error, isLoading } = useGetPokemonQuery()
+  const [search, setSearch] = useState('');
+  // const { data, error, isLoading } = useGetPokemonByNameQuery(search);
+  const [filteredList, setFilteredList] = useState<NamedAPIResource[]>([]);
+  const { pokemonList, pokemonListStatus } = useSelector<RootState>((state) => {
+    return {
+      pokemonList: state.pokemonList.list,
+      pokemonListStatus: state.pokemonList.status,
+    };
+  }) as { pokemonList: NamedAPIResource[]; pokemonListStatus: RequestStatus };
+  const handleSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearch(() => event.target.value);
+    },
+    [],
+  );
+  const handleSearch = useCallback(() => {
+    setFilteredList(pokemonList.filter((item) => item.name.includes(search)));
+  }, [search, pokemonList]);
 
   return (
     <main className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + RTK Query!</p>
-        <Counter />
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-          {error ? (
-            <>Oh no, there was an error</>
-          ) : isLoading ? (
-            <>Loading...</>
-          ) : data ? (
-            data.results.map((v, i) => {
-              return (
-                <span key={i}>
-                  {' | '}
-                  <a
-                    className="App-link"
-                    href={v.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {v.name}
-                  </a>
-                </span>
-              )
-            })
-          ) : (
-            false
-          )}
-        </p>
+        <div>
+          <input name="search" value={search} onChange={handleSearchChange} />
+          <button onClick={handleSearch}>Search</button>
+        </div>
+        {isRequestInProgress(pokemonListStatus) ? 'Loading' : false}
+        {filteredList ? <PokemonList list={filteredList} /> : false}
       </header>
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;

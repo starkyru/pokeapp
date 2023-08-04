@@ -4,4 +4,4 @@ export const CONTEST_TYPES = {
   CUTE: 3,
   SMART: 4,
   TOUGH: 5,
-} as const
+} as const;

@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Generation
@@ -8,21 +8,21 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface Generation {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** A list of abilities that were introduced in this generation */
-  abilities: NamedAPIResource[]
+  abilities: NamedAPIResource[];
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** The main region travelled in this generation */
-  main_region: NamedAPIResource
+  main_region: NamedAPIResource;
   /** A list of moves that were introduced in this generation */
-  moves: NamedAPIResource[]
+  moves: NamedAPIResource[];
   /** A list of Pokémon species that were introduced in this generation */
-  pokemon_species: NamedAPIResource[]
+  pokemon_species: NamedAPIResource[];
   /** A list of types that were introduced in this generation */
-  types: NamedAPIResource[]
+  types: NamedAPIResource[];
   /** A list of version groups that were introduced in this generation */
-  version_groups: NamedAPIResource[]
+  version_groups: NamedAPIResource[];
 }

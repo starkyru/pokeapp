@@ -1,6 +1,6 @@
-import type { Description, Name, NamedAPIResource } from '../Common'
+import type { Description, Name, NamedAPIResource } from '../Common';
 
-import type { PokemonEntry } from './pokemon-entry'
+import type { PokemonEntry } from './pokemon-entry';
 
 /**
  * ## Pokedex
@@ -11,19 +11,19 @@ import type { PokemonEntry } from './pokemon-entry'
  */
 export interface Pokedex {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: string
+  name: string;
   /** Whether or not this Pokédex originated in the main series of the video games */
-  is_main_series: boolean
+  is_main_series: boolean;
   /** The description of this resource listed in different languages */
-  descriptions: Description[]
+  descriptions: Description[];
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A list of Pokémon catalogued in this Pokédex and their indexes */
-  pokemon_entries: PokemonEntry[]
+  pokemon_entries: PokemonEntry[];
   /** The region this Pokédex catalogues Pokémon for */
-  region: NamedAPIResource | null
+  region: NamedAPIResource | null;
   /** A list of version groups this Pokédex is relevant to */
-  version_groups: NamedAPIResource[]
+  version_groups: NamedAPIResource[];
 }

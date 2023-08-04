@@ -1,4 +1,4 @@
-import type { Effect, FlavorText, NamedAPIResource } from '../Common'
+import type { Effect, FlavorText, NamedAPIResource } from '../Common';
 
 /**
  * ## Contest Type
@@ -7,13 +7,13 @@ import type { Effect, FlavorText, NamedAPIResource } from '../Common'
  */
 export interface ContestType {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: 'cool' | 'beauty' | 'cute' | 'smart' | 'tough'
+  name: 'cool' | 'beauty' | 'cute' | 'smart' | 'tough';
   /** The berry flavor that correlates with this contest type */
-  berry_flavor: NamedAPIResource
+  berry_flavor: NamedAPIResource;
   /** The name of this contest type listed in different languages */
-  names: ContestName[]
+  names: ContestName[];
 }
 
 /**
@@ -21,11 +21,11 @@ export interface ContestType {
  */
 export interface ContestName {
   /** The name for this contest */
-  name: string
+  name: string;
   /** The color associated with this contest's name */
-  color: string
+  color: string;
   /** The language that this name is in */
-  language: NamedAPIResource
+  language: NamedAPIResource;
 }
 
 /**
@@ -34,15 +34,15 @@ export interface ContestName {
  */
 export interface ContestEffect {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The base number of hearts the user of this move gets */
-  appeal: number
+  appeal: number;
   /** The base number of hearts the user's opponent loses */
-  jam: number
+  jam: number;
   /** The result of this contest effect listed in different languages */
-  effect_entries: Effect[]
+  effect_entries: Effect[];
   /** The flavor text of this contest effect listed in different languages */
-  flavor_text_entries: FlavorText[]
+  flavor_text_entries: FlavorText[];
 }
 
 /**
@@ -57,11 +57,11 @@ export interface ContestEffect {
  */
 export interface SuperContestEffect {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The level of appeal this super contest effect has */
-  appeal: number
+  appeal: number;
   /** The flavor text of this super contest effect listed in different languages */
-  flavor_text_entries: FlavorText[]
+  flavor_text_entries: FlavorText[];
   /** A list of moves that have the effect when used in super contests */
-  moves: NamedAPIResource[]
+  moves: NamedAPIResource[];
 }

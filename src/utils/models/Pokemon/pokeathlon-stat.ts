@@ -1,4 +1,4 @@
-import type { Name, NamedAPIResource } from '../Common'
+import type { Name, NamedAPIResource } from '../Common';
 
 /**
  * ## Pokeathlon Stat
@@ -8,13 +8,13 @@ import type { Name, NamedAPIResource } from '../Common'
  */
 export interface PokeathlonStat {
   /** The identifier for this resource */
-  id: number
+  id: number;
   /** The name for this resource */
-  name: 'speed' | 'power' | 'skill' | 'stamina' | 'jump'
+  name: 'speed' | 'power' | 'skill' | 'stamina' | 'jump';
   /** The name of this resource listed in different languages */
-  names: Name[]
+  names: Name[];
   /** A detail of natures which affect this Pokéathlon stat positively or negatively */
-  affecting_natures: NaturePokeathlonStatAffectSets
+  affecting_natures: NaturePokeathlonStatAffectSets;
 }
 
 /**
@@ -22,9 +22,9 @@ export interface PokeathlonStat {
  */
 export interface NaturePokeathlonStatAffect {
   /** The maximum amount of change to the referenced Pokéathlon stat. */
-  max_change: -1 | -2 | 1 | 2
+  max_change: -1 | -2 | 1 | 2;
   /** The nature causing the change */
-  nature: NamedAPIResource
+  nature: NamedAPIResource;
 }
 
 /**
@@ -32,7 +32,7 @@ export interface NaturePokeathlonStatAffect {
  */
 export interface NaturePokeathlonStatAffectSets {
   /** A list of natures and how they change the referenced Pokéathlon stat */
-  increase: NaturePokeathlonStatAffect[]
+  increase: NaturePokeathlonStatAffect[];
   /** A list of natures and how they change the referenced Pokéathlon stat */
-  decrease: NaturePokeathlonStatAffect[]
+  decrease: NaturePokeathlonStatAffect[];
 }

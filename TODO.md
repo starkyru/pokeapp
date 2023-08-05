@@ -11,7 +11,7 @@
 - Refactoring
   - Split into components if needed
   - Add navigation
-  - Add debounce
+  - Add debouncenpm i
 - Styling
   - Component styling
   - Animations

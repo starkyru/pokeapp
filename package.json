@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@types/react-router-dom": "^5.3.3",
     "i18next": "^23.4.1",
     "ky": "^0.33.3",
     "proxy-memoize": "^2.0.4",
@@ -30,6 +31,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.3",
     "react-redux": "^8.1.1",
+    "react-router-dom": "^5.3.4",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.2.3"
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import './translations/i18n';
@@ -9,8 +10,15 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <header className="App-header">
-        <SearchField />
-        <PokemonListContainer />
+        <Switch>
+          <Route path="/pokemon/:pokemonName">
+            <div>pokemon</div>
+          </Route>
+          <Route path="/">
+            <SearchField />
+            <PokemonListContainer />
+          </Route>
+        </Switch>
       </header>
     </main>
   );

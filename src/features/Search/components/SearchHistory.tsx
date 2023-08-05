@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { uid } from 'react-uid';
 
+import { Header } from '../../../components/Header';
 import type { RootState } from '../../../store';
 
 export const SearchHistory: React.FC = () => {
@@ -13,15 +14,19 @@ export const SearchHistory: React.FC = () => {
   );
   return (
     <div>
-      <h3>{t('Search history')}</h3>
-      <div className="flex flex-col">
+      <Header title={t('history')} />
+      <div className="flex flex-col items-center pt-4">
         {history && history.length
           ? history.map((item, index) => (
-              <Link key={uid(item, index)} to={`/?search=${item}`}>
+              <Link
+                key={uid(item, index)}
+                to={`/?search=${item}`}
+                className="p-2"
+              >
                 {item}
               </Link>
             ))
-          : t('Search history is empty')}
+          : t('history-empty')}
       </div>
     </div>
   );

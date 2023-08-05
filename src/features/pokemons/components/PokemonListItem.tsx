@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useGetPokemonByNameQuery } from '../../../services/pokemonApi';
-import { capitalizeFirstLetter } from '../../../utils/string';
+import { formatName } from '../../../utils/string';
 
 type PokemonListItemProps = {
   name: string;
@@ -17,7 +17,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
         <>Loading...</>
       ) : (
         data && (
-          <div className="bg-gray-200 rounded flex w-full justify-center  hover:bg-none  cursor-pointer">
+          <div className="bg-gray-200 rounded flex w-full justify-center  group-hover:bg-none  cursor-pointer">
             <Link
               className="flex flex-col justify-between"
               to={`/pokemon/${data.name}`}
@@ -28,9 +28,7 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
                   src={data.sprites.front_default}
                 />
               )}
-              <div className="text-2xl p-2">
-                {capitalizeFirstLetter(data.name)}
-              </div>
+              <div className="text-2xl p-2">{formatName(data.name)}</div>
             </Link>
           </div>
         )

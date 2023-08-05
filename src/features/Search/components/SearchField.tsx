@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
+import { Button } from '../../../components/Button/Button';
 import { useAppDispatch } from '../../../store/storeHelpers';
 import { useSearchQuery } from '../hooks/useSearchQuery';
 import { search } from '../store/searchSlice';
@@ -28,9 +29,14 @@ export const SearchField: React.FC = () => {
   }, [searchString]);
 
   return (
-    <div>
-      <input name="search" value={searchString} onChange={handleSearchChange} />
-      <button onClick={handleSearch}>{t('search')}</button>
+    <div className="flex justify-center">
+      <input
+        name="search"
+        className="rounded-2xl"
+        value={searchString}
+        onChange={handleSearchChange}
+      />
+      <Button onClick={handleSearch} className="ml-2" title={t('search')} />
     </div>
   );
 };

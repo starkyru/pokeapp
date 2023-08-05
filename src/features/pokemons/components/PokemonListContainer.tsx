@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import { Button } from '../../../components/Button/Button';
 import { StatusFetchWrapper } from '../../../components/FetchWrapper';
 import type { RootState } from '../../../store';
 import { useAppDispatch } from '../../../store/storeHelpers';
@@ -56,7 +57,11 @@ export const PokemonListContainer: React.FC = memo(() => {
     <StatusFetchWrapper status={pokemonListStatus}>
       {visiblePokemon ? <PokemonList list={visiblePokemon} /> : false}
       {page * ITEMS_PER_PAGE < filteredList.length && (
-        <button onClick={handleLoadMore}>{t('Load More')}</button>
+        <Button
+          onClick={handleLoadMore}
+          title={t('loadmore')}
+          className="m-2 px-6"
+        />
       )}
     </StatusFetchWrapper>
   );

@@ -27,9 +27,11 @@ export const searchSlice = createSlice({
   reducers: {
     search: (state, action: PayloadAction<string>) => {
       state.searchString = action.payload;
-      const newHistory = state.history.filter((i) => i !== action.payload);
-      newHistory.unshift(action.payload);
-      state.history = newHistory;
+      if (action.payload) {
+        const newHistory = state.history.filter((i) => i !== action.payload);
+        newHistory.unshift(action.payload);
+        state.history = newHistory;
+      }
     },
   },
 });

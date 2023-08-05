@@ -7,14 +7,19 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      'Load more': 'Load more',
-      'Nothing found': 'Nothing found',
-      'Search Pokemon': 'Search Pokemon',
-      'Search history': 'Search history',
-      'Search history is empty': 'Search history is empty',
       'app-name': 'Pokedex',
       error: 'Error occurred',
+      history: 'Search history',
+      'history-empty': 'Search history is empty',
       loading: 'Loading',
+      loadmore: 'Load more »',
+      'nothing-found': 'Nothing found',
+      pokemon: {
+        abilities: 'Abilities:',
+        moves: 'Moves:',
+        spieces: 'Spieces:',
+      },
+      search: 'Search »',
     },
   },
 };

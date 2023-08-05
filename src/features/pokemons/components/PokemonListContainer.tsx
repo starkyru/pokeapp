@@ -69,10 +69,10 @@ export const PokemonListContainer: React.FC = memo(() => {
 
   return (
     <StatusFetchWrapper status={pokemonListStatus}>
-      {searchString && (
+      {storeSearchString && (
         <div className="m-2">
           {t('searchfor')}
-          {searchString}
+          {storeSearchString}
         </div>
       )}
       {visiblePokemon ? <PokemonList list={visiblePokemon} /> : false}

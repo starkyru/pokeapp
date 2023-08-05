@@ -11,7 +11,7 @@ import { SearchHistory } from './features/Search/components/SearchHistory';
 const App: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <main className="container px-5 py-2 mx-auto">
+    <main className="container px-4 lg:px-6 py-1 lg:py-2 mx-auto">
       <header className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">

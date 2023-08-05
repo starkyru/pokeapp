@@ -5,6 +5,6 @@ interface HeaderProps {
 }
 export const Header: React.FC<HeaderProps> = memo(({ title }) => {
   return (
-    <h1 className={'px-5 py-2 text-center font-bold text-2xl'}>{title}</h1>
+    <h1 className={'px-5 py-2 text-center font-bold text-3xl'}>{title}</h1>
   );
 });

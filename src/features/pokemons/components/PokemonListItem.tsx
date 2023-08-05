@@ -11,21 +11,26 @@ type PokemonListItemProps = {
 const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
   const { data, error, isLoading } = useGetPokemonByNameQuery(name);
   return (
-    <div className="w-1/4 flex p-2 w-sm-1/2">
+    <div className="w-1/2 flex p-4 md:w-1/4 lg:w-1/6 hover:border-2 hover:p-2 rounded-2xl">
       <FetchWrapper isLoading={isLoading} isError={!!error}>
         {data && (
-          <div className="bg-gray-200 rounded flex w-full justify-center  group-hover:bg-none  cursor-pointer">
+          <div className="flex w-full justify-center cursor-pointer">
             <Link
-              className="flex flex-col justify-between"
+              className="flex flex-1 flex-col justify-between"
               to={`/pokemon/${data.name}`}
             >
-              {data.sprites.front_default && (
-                <img
-                  className="resize object-contain w-full flex-1"
-                  src={data.sprites.front_default}
-                />
-              )}
-              <div className="text-2xl p-2">{formatName(data.name)}</div>
+              <div className="w-full bg-gray-200 rounded-2xl">
+                {data.sprites.front_default && (
+                  <img
+                    className="resize object-contain w-full flex-1"
+                    src={data.sprites.front_default}
+                    alt={`Default front image of ${data.name}`}
+                  />
+                )}
+              </div>
+              <div className="text-2xl p-2 text-center">
+                {formatName(data.name)}
+              </div>
             </Link>
           </div>
         )}

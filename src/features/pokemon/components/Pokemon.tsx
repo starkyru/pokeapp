@@ -67,50 +67,62 @@ export const Pokemon: React.FC = () => {
     <FetchWrapper isLoading={isLoading} isError={!!error}>
       {data && (
         <div>
-          <Header title={formatName(data.name)} />
           <Link to={'/'}>
             <Button title={t('back')} />
           </Link>
-          {data.sprites.front_default && (
-            <img src={data.sprites.front_default} className="w-[200px]" />
-          )}
-          {data.abilities && data.abilities.length && (
-            <p>
-              <span className="font-bold pr-2"> {t('abilities')}</span>{' '}
-              {data.abilities
-                .map((ability) => formatName(ability.ability.name))
-                .join(', ')}
-            </p>
-          )}
-          {data.moves && data.moves.length && (
-            <p>
-              <span className="font-bold pr-2">{t('moves')}</span>{' '}
-              {data.moves.map((move) => formatName(move.move.name)).join(', ')}
-            </p>
-          )}
-          {data.species && (
-            <p>
-              <span className="font-bold pr-2">{t('spieces')}</span>
-              {formatName(data.species.name)}
-            </p>
-          )}
-          {data.sprites && (
-            <div>
-              <span className="font-bold pr-2">{t('sprites')}</span>
-              <div className="flex">
-                {Object.values(data.sprites).map((item) => {
-                  // just a dumb list of basic sprites
-                  if (typeof item === 'string') {
-                    return <img key={item} src={item} />;
-                  }
-                })}
-              </div>
+          <Header title={formatName(data.name)} />
+          <div className="flex flex-wrap md:flex-nowrap">
+            <div className="w-full md:w-1/2 lg:w-1/3">
+              {data.sprites.front_default && (
+                <img
+                  src={data.sprites.front_default}
+                  className="resize object-contain w-full flex-1"
+                  alt={`Default front image of ${data.name}`}
+                />
+              )}
             </div>
-          )}
+            <div className="flex-1">
+              {data.abilities && data.abilities.length ? (
+                <p>
+                  <span className="font-bold pr-2"> {t('abilities')}</span>{' '}
+                  {data.abilities
+                    .map((ability) => formatName(ability.ability.name))
+                    .join(', ')}
+                </p>
+              ) : null}
+              {data.moves && data.moves.length ? (
+                <p>
+                  <span className="font-bold pr-2">{t('moves')}</span>{' '}
+                  {data.moves
+                    .map((move) => formatName(move.move.name))
+                    .join(', ')}
+                </p>
+              ) : null}
+              {data.species && (
+                <p>
+                  <span className="font-bold pr-2">{t('spieces')}</span>
+                  {formatName(data.species.name)}
+                </p>
+              )}
+              {data.sprites && (
+                <div>
+                  <span className="font-bold pr-2">{t('sprites')}</span>
+                  <div className="flex flex-wrap">
+                    {Object.values(data.sprites).map((item) => {
+                      // just a dumb list of basic sprites
+                      if (typeof item === 'string') {
+                        return <img key={item} src={item} />;
+                      }
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
           {plainEvolutionChain && (
             <div>
               <span className="font-bold pr-2">{t('evolution')}</span>
-              <div className={'flex'}>
+              <div className={'flex flex-wrap'}>
                 {plainEvolutionChain.map((item) => (
                   <PokemonListItem key={item.name} name={item.name} />
                 ))}

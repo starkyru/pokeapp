@@ -4,34 +4,36 @@ import { REHYDRATE } from 'redux-persist/es/constants';
 
 export interface SearchFieldState {
   searchString: string;
-  searchHistory: string[];
+  history: string[];
 }
 
 const initialState: SearchFieldState = {
-  searchHistory: [],
+  history: [],
   searchString: '',
 };
 
-export const searchFieldSlice = createSlice({
+export const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(
       (action) => action.type === REHYDRATE,
-      (state, action: PayloadAction<SearchFieldState>) => {
-        state.searchHistory = action?.payload?.searchHistory ?? [];
+      (state, action: PayloadAction<{ search: SearchFieldState }>) => {
+        state.history = action?.payload?.search?.history ?? [];
         state.searchString = '';
       },
     );
   },
   initialState,
-  name: 'searchField',
+  name: 'search',
   reducers: {
     search: (state, action: PayloadAction<string>) => {
       state.searchString = action.payload;
-      state.searchHistory.push(action.payload);
+      const newHistory = state.history.filter((i) => i !== action.payload);
+      newHistory.unshift(action.payload);
+      state.history = newHistory;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { search } = searchFieldSlice.actions;
-export const searchFieldReducer = searchFieldSlice.reducer;
+export const { search } = searchSlice.actions;
+export const searchReducer = searchSlice.reducer;

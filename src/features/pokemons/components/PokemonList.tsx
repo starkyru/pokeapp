@@ -11,7 +11,7 @@ type PokemonListProps = {
 const PokemonList: React.FC<PokemonListProps> = ({ list }) => {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className="flex flex-row flex-wrap">
       {list.length
         ? list.map((item) => (
             <PokemonListItem name={item.name} key={item.name} />

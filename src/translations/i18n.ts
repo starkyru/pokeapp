@@ -9,6 +9,10 @@ const resources = {
     translation: {
       'Load more': 'Load more',
       'Nothing found': 'Nothing found',
+      'Search Pokemon': 'Search Pokemon',
+      'Search history': 'Search history',
+      'Search history is empty': 'Search history is empty',
+      'app-name': 'Pokedex',
       error: 'Error occurred',
       loading: 'Loading',
     },

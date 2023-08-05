@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import createSagaMiddleware from 'redux-saga';
 
 import { pokemonListReducer } from '../features/pokemons/store/pokemonList/pokemonListSlice';
-import { searchFieldReducer } from '../features/SearchField/searchFieldSlice';
+import { searchReducer } from '../features/Search/store/searchSlice';
 import { pokemonApi } from '../services/pokemonApi';
 
 import { mainSaga } from './mainSaga';
@@ -23,7 +23,7 @@ const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['searchField'],
+  whitelist: ['search'],
 };
 
 const persistedReducer = persistReducer(
@@ -31,7 +31,7 @@ const persistedReducer = persistReducer(
   combineReducers({
     pokemonList: pokemonListReducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
-    searchField: searchFieldReducer,
+    search: searchReducer,
   }),
 );
 

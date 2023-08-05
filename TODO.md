@@ -12,15 +12,16 @@
   - ~~Split into components if needed~~
   - ~~Add navigation~~
   - Add debounce
+  - Looks like we need some caching
 - Styling
-  - Component styling
+  - ~~Component styling~~
   - Animations
 - Bonus features
   - Details
-    - Abilities
-    - Movies
-    - Species
-    - Sprites
+    - ~~Abilities~~
+    - ~~Movies~~
+    - ~~Species~~
+    - ~~Sprites~~
     - Types
   - Evolutions
 - Optimisations

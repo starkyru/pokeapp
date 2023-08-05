@@ -18,7 +18,6 @@
     "prettier": "prettier --write \"**/*.+(json|yml|css|md|mdx)\"",
     "clean": "rimraf node_modules package-lock.json dist",
     "validate": "./scripts/validate",
-    "remove:tailwind": "node ./scripts/remove_tailwind",
     "prepare": "husky install"
   },
   "dependencies": {

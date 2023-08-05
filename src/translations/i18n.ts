@@ -14,10 +14,14 @@ const resources = {
       loading: 'Loading',
       loadmore: 'Load more »',
       'nothing-found': 'Nothing found',
+
       pokemon: {
         abilities: 'Abilities:',
+        back: 'Go back',
+        evolution: 'Evolution chain:',
         moves: 'Moves:',
         spieces: 'Spieces:',
+        sprites: 'Sprites:',
       },
       search: 'Search »',
     },

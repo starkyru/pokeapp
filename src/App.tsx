@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -6,8 +7,6 @@ import './translations/i18n';
 import { Pokemon } from './features/pokemon/components/Pokemon';
 import { Search } from './features/Search/components/Search';
 import { SearchHistory } from './features/Search/components/SearchHistory';
-
-import { useTranslation } from 'react-i18next';
 
 const App: React.FC = () => {
   const { t } = useTranslation();

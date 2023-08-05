@@ -2,12 +2,12 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { REHYDRATE } from 'redux-persist/es/constants';
 
-export interface SearchFieldState {
+export interface SearchState {
   searchString: string;
   history: string[];
 }
 
-const initialState: SearchFieldState = {
+const initialState: SearchState = {
   history: [],
   searchString: '',
 };
@@ -16,7 +16,7 @@ export const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(
       (action) => action.type === REHYDRATE,
-      (state, action: PayloadAction<{ search: SearchFieldState }>) => {
+      (state, action: PayloadAction<{ search: SearchState }>) => {
         state.history = action?.payload?.search?.history ?? [];
         state.searchString = '';
       },

@@ -15,8 +15,9 @@ export const filterPokemonList = (
   searchString: string,
 ) => {
   if (searchString.length > 0) {
+    const searchStringLowerCase = searchString.toLowerCase();
     const filteredList = pokemonList.filter((item) =>
-      item.name.includes(searchString),
+      item.name.includes(searchStringLowerCase),
     );
     return filteredList.length ? filteredList : EMPTY_LIST;
   }

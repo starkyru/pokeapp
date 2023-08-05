@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App';
 import { store } from './store';
@@ -8,7 +9,9 @@ import { store } from './store';
 test('Show App Component', () => {
   render(
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>,
   );
 
@@ -18,7 +21,9 @@ test('Show App Component', () => {
 test('working with msw', async () => {
   render(
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>,
   );
   // await waitFor(() => {

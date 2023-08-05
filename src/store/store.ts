@@ -1,5 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { persistStore, persistReducer } from 'redux-persist';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist/es/constants';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import createSagaMiddleware from 'redux-saga';
 
 import { pokemonListReducer } from '../features/pokemons/store/pokemonList/pokemonListSlice';
@@ -10,15 +20,32 @@ import { mainSaga } from './mainSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const store = configureStore({
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(pokemonApi.middleware, sagaMiddleware),
-  reducer: {
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['searchField'],
+};
+
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers({
     pokemonList: pokemonListReducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     searchField: searchFieldReducer,
-  },
+  }),
+);
+
+export const store = configureStore({
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(pokemonApi.middleware, sagaMiddleware),
+  reducer: persistedReducer,
 });
+
+export const persistor = persistStore(store);
 
 sagaMiddleware.run(mainSaga);
 

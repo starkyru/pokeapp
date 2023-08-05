@@ -9,7 +9,7 @@ import type {
 
 import { fetchActions, set } from './pokemonListSlice';
 
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 1500;
 
 async function fetchPokemon(offset: number, limit: number) {
   return await ky(

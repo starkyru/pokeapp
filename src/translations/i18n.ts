@@ -14,7 +14,6 @@ const resources = {
       loading: 'Loading',
       loadmore: 'Load more »',
       'nothing-found': 'Nothing found',
-
       pokemon: {
         abilities: 'Abilities:',
         back: 'Go back',
@@ -24,6 +23,7 @@ const resources = {
         sprites: 'Sprites:',
       },
       search: 'Search »',
+      searchfor: 'Searching for: ',
     },
   },
 };

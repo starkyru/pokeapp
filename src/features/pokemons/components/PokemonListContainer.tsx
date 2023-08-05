@@ -1,8 +1,9 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { Button } from '../../../components/Button/Button';
+import { Button } from '../../../components/Button';
 import { StatusFetchWrapper } from '../../../components/FetchWrapper';
 import type { RootState } from '../../../store';
 import { useAppDispatch } from '../../../store/storeHelpers';
@@ -26,13 +27,26 @@ export const PokemonListContainer: React.FC = memo(() => {
   const filteredList = useSelector<RootState, NamedAPIResource[]>((state) =>
     filteredListSelector(state),
   );
+  const storeSearchString = useSelector<RootState, string>(
+    (state) => state.search.searchString,
+  );
   const searchString = useSearchQuery();
   const dispatch = useAppDispatch();
+  const history = useHistory();
 
   // set search only on the page load
+  // could be extracted
   useEffect(() => {
     if (searchString) {
       dispatch(search(searchString));
+    }
+    if (storeSearchString) {
+      // restore last search
+      const params = new URLSearchParams({ search: storeSearchString });
+      history.replace({
+        pathname: '/',
+        search: params.toString(),
+      });
     }
   }, []);
 
@@ -55,6 +69,12 @@ export const PokemonListContainer: React.FC = memo(() => {
 
   return (
     <StatusFetchWrapper status={pokemonListStatus}>
+      {searchString && (
+        <div className="m-2">
+          {t('searchfor')}
+          {searchString}
+        </div>
+      )}
       {visiblePokemon ? <PokemonList list={visiblePokemon} /> : false}
       {page * ITEMS_PER_PAGE < filteredList.length && (
         <Button

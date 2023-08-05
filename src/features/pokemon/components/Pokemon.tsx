@@ -25,22 +25,18 @@ export const recursivelyExtractEvolutionChain = (
   }
   return res;
 };
-export const Pokemon: React.FC = () => {
-  const { pokemonName } = useParams<{ pokemonName: string }>();
-  const { data, error, isLoading } = useGetPokemonByNameQuery(pokemonName);
-  const { t } = useTranslation('translation', { keyPrefix: 'pokemon' });
-  // const [spieces, setSpieces] = useState<PokemonSpecies | null>(null);
+
+const useEvolutionChain = (url: string | null | undefined) => {
   const [evolutionChain, setEvolutionChain] = useState<EvolutionChain | null>(
     null,
   );
 
-  // it's better to put it into the Redux/Saga
+  // possible better to move to redux/saga
   useEffect(() => {
-    if (!isLoading && !error && data) {
-      ky(data.species.url)
+    if (url) {
+      ky(url)
         .then((res) => res.json())
         .then((res) => {
-          // setSpieces(res as PokemonSpecies);
           return ky((res as PokemonSpecies).evolution_chain.url);
         })
         .then((res) => res.json())
@@ -48,7 +44,16 @@ export const Pokemon: React.FC = () => {
           setEvolutionChain(res as EvolutionChain);
         });
     }
-  }, [isLoading, error, data]);
+  }, [url]);
+  return evolutionChain;
+};
+
+export const Pokemon: React.FC = () => {
+  const { pokemonName } = useParams<{ pokemonName: string }>();
+  const { data, error, isLoading } = useGetPokemonByNameQuery(pokemonName);
+  const { t } = useTranslation('translation', { keyPrefix: 'pokemon' });
+
+  const evolutionChain = useEvolutionChain(data?.species?.url);
 
   const plainEvolutionChain = useMemo(() => {
     if (!evolutionChain) {

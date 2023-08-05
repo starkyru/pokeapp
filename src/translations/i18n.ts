@@ -7,6 +7,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+      'Load more': 'Load more',
       'Nothing found': 'Nothing found',
       error: 'Error occurred',
       loading: 'Loading',

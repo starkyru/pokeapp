@@ -70,7 +70,7 @@ export const PokemonPage: React.FC = () => {
           <Link to={'/'}>
             <Button title={t('back')} />
           </Link>
-          <Header title={formatName(data.name)} />
+          <Header title={formatName(data.name)} align="left" />
           <div className="flex flex-wrap md:flex-nowrap">
             <div className="w-full md:w-1/2 lg:w-1/3">
               {data.sprites.front_default && (

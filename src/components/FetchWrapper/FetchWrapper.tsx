@@ -11,15 +11,21 @@ import { ProgressIndicator } from '../ProgressIndicator/ProgressIndicator';
 type FetchWrapperProps = React.PropsWithChildren<{
   isLoading: boolean;
   isError: boolean;
+  LoadingComponent?: React.ComponentClass | React.FC;
 }>;
 
 export const FetchWrapper: React.FC<FetchWrapperProps> = ({
   children,
   isLoading,
   isError,
+  LoadingComponent,
 }) => {
   const { t } = useTranslation();
-  return isError ? t('error') : isLoading ? <ProgressIndicator /> : children;
+  const Component = LoadingComponent ?? ProgressIndicator;
+  if (isError) {
+    return t('error');
+  }
+  return isLoading ? <Component /> : children;
 };
 
 type StatusFetchWrapperProps = React.PropsWithChildren<{

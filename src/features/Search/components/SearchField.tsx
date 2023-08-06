@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
-import { Button } from '../../../components/Button/Button';
+import { Button } from '../../../components/Button';
 import { useAppDispatch } from '../../../store/storeHelpers';
 import { useSearchQuery } from '../hooks/useSearchQuery';
 import { search } from '../store/searchSlice';

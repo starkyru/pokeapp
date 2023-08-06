@@ -67,10 +67,12 @@ export const PokemonPage: React.FC = () => {
     <FetchWrapper isLoading={isLoading} isError={!!error}>
       {data && (
         <div>
-          <Link to={'/'}>
-            <Button title={t('back')} />
-          </Link>
-          <Header title={formatName(data.name)} align="left" />
+          <div className="flex justify-between">
+            <Header title={formatName(data.name)} align="left" />
+            <Link to={'/'}>
+              <Button title={t('back')} />
+            </Link>
+          </div>
           <div className="flex flex-wrap md:flex-nowrap">
             <div className="w-full md:w-1/2 lg:w-1/3">
               {data.sprites.front_default && (

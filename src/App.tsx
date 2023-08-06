@@ -4,9 +4,9 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import './translations/i18n';
-import { Pokemon } from './features/pokemon/components/Pokemon';
-import { Search } from './features/Search/components/Search';
+import { PokemonPage } from './features/pokemon/components/PokemonPage';
 import { SearchHistory } from './features/Search/components/SearchHistory';
+import { SearchPage } from './features/Search/components/SearchPage';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -30,13 +30,13 @@ const App: React.FC = () => {
 
       <Switch>
         <Route path="/pokemon/:pokemonName">
-          <Pokemon />
+          <PokemonPage />
         </Route>
         <Route path="/history">
           <SearchHistory />
         </Route>
         <Route path="/">
-          <Search />
+          <SearchPage />
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>

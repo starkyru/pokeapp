@@ -4,7 +4,7 @@ import { PokemonListContainer } from '../../pokemons/components/PokemonListConta
 
 import { SearchField } from './SearchField';
 
-export const Search: React.FC = () => {
+export const SearchPage: React.FC = () => {
   return (
     <>
       <SearchField />

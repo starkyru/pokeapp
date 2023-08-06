@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
@@ -24,6 +24,14 @@ export const SearchField: React.FC = () => {
     },
     [],
   );
+
+  // restore state on the page load
+  useEffect(() => {
+    if (searchString) {
+      dispatch(search(searchString));
+    }
+  }, []);
+
   const handleSearch = useCallback(() => {
     dispatch(search(searchString));
   }, [searchString]);

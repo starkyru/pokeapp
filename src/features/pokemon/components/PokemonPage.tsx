@@ -48,7 +48,7 @@ const useEvolutionChain = (url: string | null | undefined) => {
   return evolutionChain;
 };
 
-export const Pokemon: React.FC = () => {
+export const PokemonPage: React.FC = () => {
   const { pokemonName } = useParams<{ pokemonName: string }>();
   const { data, error, isLoading } = useGetPokemonByNameQuery(pokemonName);
   const { t } = useTranslation('translation', { keyPrefix: 'pokemon' });

@@ -6,11 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { Button } from '../../../components/Button';
 import { StatusFetchWrapper } from '../../../components/FetchWrapper';
 import type { RootState } from '../../../store';
-import { useAppDispatch } from '../../../store/storeHelpers';
 import type { NamedAPIResource } from '../../../utils/models';
 import type { RequestStatus } from '../../../utils/requestStatus';
-import { useSearchQuery } from '../../Search/hooks/useSearchQuery';
-import { search } from '../../Search/store/searchSlice';
 import {
   filteredListSelector,
   getPokemonListStatus,
@@ -19,27 +16,15 @@ import {
 import { PokemonList } from './PokemonList';
 
 const ITEMS_PER_PAGE = 20;
-export const PokemonListContainer: React.FC = memo(() => {
-  const { t } = useTranslation();
 
-  const [page, setPage] = useState<number>(1);
-
-  const filteredList = useSelector<RootState, NamedAPIResource[]>((state) =>
-    filteredListSelector(state),
-  );
+const useStoreSearchString = () => {
   const storeSearchString = useSelector<RootState, string>(
     (state) => state.search.searchString,
   );
-  const searchString = useSearchQuery();
-  const dispatch = useAppDispatch();
+
   const history = useHistory();
 
-  // set search only on the page load
-  // could be extracted
   useEffect(() => {
-    if (searchString) {
-      dispatch(search(searchString));
-    }
     if (storeSearchString) {
       // restore last search
       const params = new URLSearchParams({ search: storeSearchString });
@@ -50,6 +35,16 @@ export const PokemonListContainer: React.FC = memo(() => {
     }
   }, []);
 
+  return storeSearchString;
+};
+
+const usePokemonSearch = () => {
+  const [page, setPage] = useState<number>(1);
+
+  const filteredList = useSelector<RootState, NamedAPIResource[]>((state) =>
+    filteredListSelector(state),
+  );
+
   // reset page on new filtered list
   useEffect(() => {
     setPage(1);
@@ -59,13 +54,23 @@ export const PokemonListContainer: React.FC = memo(() => {
     return filteredList.slice(0, ITEMS_PER_PAGE * page);
   }, [page, filteredList]);
 
-  const pokemonListStatus = useSelector<RootState, RequestStatus>((state) =>
-    getPokemonListStatus(state),
-  );
-
-  const handleLoadMore = useCallback(() => {
+  const loadMore = useCallback(() => {
     setPage((page) => page + 1);
   }, []);
+  const showLoadMore = page * ITEMS_PER_PAGE < filteredList.length;
+  return { loadMore, page, showLoadMore, visiblePokemon };
+};
+
+const usePokemonListStatus = () =>
+  useSelector<RootState, RequestStatus>((state) => getPokemonListStatus(state));
+
+export const PokemonListContainer: React.FC = memo(() => {
+  const { t } = useTranslation();
+
+  const storeSearchString = useStoreSearchString();
+  const pokemonListStatus = usePokemonListStatus();
+
+  const { loadMore, showLoadMore, visiblePokemon } = usePokemonSearch();
 
   return (
     <StatusFetchWrapper status={pokemonListStatus}>
@@ -76,12 +81,8 @@ export const PokemonListContainer: React.FC = memo(() => {
         </div>
       )}
       {visiblePokemon ? <PokemonList list={visiblePokemon} /> : false}
-      {page * ITEMS_PER_PAGE < filteredList.length && (
-        <Button
-          onClick={handleLoadMore}
-          title={t('loadmore')}
-          className="m-2 px-6"
-        />
+      {showLoadMore && (
+        <Button onClick={loadMore} title={t('loadmore')} className="m-2 px-6" />
       )}
     </StatusFetchWrapper>
   );

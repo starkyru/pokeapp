@@ -17,6 +17,8 @@ import type {
 import { formatName } from '../../../utils/string';
 import { PokemonListItem } from '../../pokemons/components/PokemonListItem';
 
+import { PokemonPanel } from './PokemonPanel';
+
 export const recursivelyExtractEvolutionChain = (
   chain: ChainLink,
 ): NamedAPIResource[] => {
@@ -90,76 +92,78 @@ export const PokemonPage: React.FC = () => {
               )}
             </div>
             <div className="flex-1">
-              {data.abilities && data.abilities.length ? (
-                <p>
-                  <span className="font-bold pr-2"> {t('abilities')}</span>{' '}
-                  {data.abilities
-                    .map((ability) => formatName(ability.ability.name))
-                    .join(', ')}
-                </p>
-              ) : null}
-              {data.moves && data.moves.length ? (
-                <p>
-                  <span className="font-bold pr-2">{t('moves')}</span>{' '}
-                  {data.moves
-                    .map((move) => formatName(move.move.name))
-                    .join(', ')}
-                </p>
-              ) : null}
-              {data.species && (
-                <p>
-                  <span className="font-bold pr-2">{t('spieces')}</span>
-                  {formatName(data.species.name)}
-                </p>
-              )}
-              {data.sprites && (
-                <div>
-                  <span className="font-bold pr-2">{t('sprites')}</span>
-                  <div className="flex flex-wrap">
-                    {Object.values(data.sprites).map((item) => {
-                      // just a dumb list of basic sprites
-                      if (typeof item === 'string') {
-                        return <img key={item} src={item} />;
-                      }
-                    })}
-                  </div>
+              <PokemonPanel
+                isVisible={Boolean(data.abilities && data.abilities.length)}
+                title={t('abilities')}
+              >
+                {data.abilities
+                  .map((ability) => formatName(ability.ability.name))
+                  .join(', ')}
+              </PokemonPanel>
+              <PokemonPanel
+                isVisible={Boolean(data.moves && data.moves.length)}
+                title={t('moves')}
+              >
+                {data.moves
+                  .map((move) => formatName(move.move.name))
+                  .join(', ')}
+              </PokemonPanel>
+              <PokemonPanel
+                isVisible={Boolean(data.species)}
+                title={t('spieces')}
+              >
+                {formatName(data.species.name)}
+              </PokemonPanel>
+              <PokemonPanel
+                isVisible={Boolean(data.sprites)}
+                title={t('sprites')}
+              >
+                <div className="flex flex-wrap">
+                  {Object.values(data.sprites).map((item) => {
+                    // just a dumb list of basic sprites
+                    if (typeof item === 'string') {
+                      return <img key={item} src={item} />;
+                    }
+                  })}
                 </div>
-              )}
+              </PokemonPanel>
 
-              {data.stats && data.stats.length ? (
-                <div>
-                  <span className="font-bold pr-2">{t('stats')}</span>
-                  <div className="grid grid-cols-2 gap-2">
-                    {data.stats.map((stat) => (
-                      <>
-                        <div key={stat.stat.name}>
-                          {formatName(stat.stat.name)}:
-                        </div>
-                        <div>
-                          <progress
-                            max={100}
-                            value={stat.base_stat}
-                            className="rounded-lg overflow-hidden"
-                          />
-                        </div>
-                      </>
-                    ))}
-                  </div>
+              <PokemonPanel
+                isVisible={Boolean(data.stats && data.stats.length)}
+                title={t('stats')}
+              >
+                <div className="grid grid-cols-2 gap-2">
+                  {data.stats.map((stat) => (
+                    <>
+                      <div key={stat.stat.name}>
+                        {formatName(stat.stat.name)}:
+                      </div>
+                      <div>
+                        <progress
+                          max={100}
+                          value={stat.base_stat}
+                          className="rounded-lg overflow-hidden"
+                        />
+                      </div>
+                    </>
+                  ))}
                 </div>
-              ) : null}
+              </PokemonPanel>
             </div>
           </div>
 
-          {plainEvolutionChain && (
-            <div>
-              <span className="font-bold pr-2">{t('evolution')}</span>
-              <div className={'flex flex-wrap'}>
-                {plainEvolutionChain.map((item) => (
-                  <PokemonListItem key={item.name} name={item.name} />
-                ))}
-              </div>
+          <PokemonPanel
+            isVisible={Boolean(
+              plainEvolutionChain && plainEvolutionChain.length,
+            )}
+            title={t('evolution')}
+          >
+            <div className={'flex flex-wrap'}>
+              {plainEvolutionChain.map((item) => (
+                <PokemonListItem key={item.name} name={item.name} />
+              ))}
             </div>
-          )}
+          </PokemonPanel>
         </div>
       )}
     </FetchWrapper>

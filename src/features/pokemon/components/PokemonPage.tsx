@@ -74,7 +74,7 @@ export const PokemonPage: React.FC = () => {
             </Link>
           </div>
           <div className="flex flex-wrap md:flex-nowrap">
-            <div className="w-full md:w-1/2 lg:w-1/3">
+            <div className="w-full md:w-1/2 lg:w-1/3 aspect-square">
               {data.sprites.front_default && (
                 <img
                   src={data.sprites.front_default}

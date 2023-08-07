@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -7,8 +8,6 @@ import { AppHeader } from './components/AppHeader/AppHeader';
 import { PokemonPage } from './features/pokemon/components/PokemonPage';
 import { SearchHistoryPage } from './features/Search/components/SearchHistoryPage';
 import { SearchPage } from './features/Search/components/SearchPage';
-
-import { Helmet } from 'react-helmet';
 
 const App: React.FC = () => {
   return (

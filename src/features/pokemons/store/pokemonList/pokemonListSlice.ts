@@ -1,13 +1,13 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { NamedAPIResource } from '../../../../utils/models';
-import type { RequestStatus } from '../../../../utils/requestStatus';
 import {
   addFetchCases,
   createFetchActions,
-  requestInactive,
-} from '../../../../utils/requestStatus';
+} from '../../../../utils/fetchStateUtils';
+import type { NamedAPIResource } from '../../../../utils/models';
+import type { RequestStatus } from '../../../../utils/requestStatus';
+import { requestInactive } from '../../../../utils/requestStatus';
 
 export interface PokemonListState {
   list: NamedAPIResource[];

@@ -1,6 +1,3 @@
-import type { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { createAction } from '@reduxjs/toolkit';
-
 export type RequestStatusProgress = {
   type: 'active';
   progress?: number;
@@ -74,48 +71,3 @@ export function getRequestError(...statuses: RequestStatus[]) {
 
   return undefined;
 }
-
-export const createFetchActions = (prefix: string) => {
-  return {
-    fail: createAction<{ error?: string; errorCode?: number }>(
-      `${prefix}/fail`,
-    ),
-    fetch: createAction(`${prefix}/fetch`),
-    progress: createAction<number>(`${prefix}/progress`),
-    success: createAction(`${prefix}/success`),
-  };
-};
-
-// TODO: Move out of here
-type KeysMatching<T, V> = {
-  [K in keyof T]-?: T[K] extends V ? K : never;
-}[keyof T];
-
-type CreateFetchActions = ReturnType<typeof createFetchActions>;
-type RequestKeys<State> = KeysMatching<State, RequestStatus>;
-export const addFetchCases = <State>(
-  builder: ActionReducerMapBuilder<State>,
-  actions: CreateFetchActions,
-  statusKey: RequestKeys<State>,
-): ActionReducerMapBuilder<State> => {
-  return builder
-    .addCase(actions.fetch, (state) => {
-      // @ts-ignore I know better
-      state[statusKey] = requestInProgress();
-    })
-    .addCase(actions.progress, (state, action) => {
-      // @ts-ignore I know better
-      state[statusKey] = requestInProgress(action.payload);
-    })
-    .addCase(actions.fail, (state, action) => {
-      // @ts-ignore I know better
-      state[statusKey] = requestFailed(
-        action.payload.error,
-        action.payload.errorCode,
-      );
-    })
-    .addCase(actions.success, (state) => {
-      // @ts-ignore I know better
-      state[statusKey] = requestSuccess();
-    });
-};

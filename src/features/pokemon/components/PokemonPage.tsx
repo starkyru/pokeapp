@@ -119,8 +119,27 @@ export const PokemonPage: React.FC = () => {
                   </div>
                 </div>
               )}
+
+              {data.stats && data.stats.length ? (
+                <div>
+                  <span className="font-bold pr-2">{t('stats')}</span>
+                  <div className="grid grid-cols-2 gap-4">
+                    {data.stats.map((stat) => (
+                      <>
+                        <div key={stat.stat.name}>
+                          {formatName(stat.stat.name)}:
+                        </div>
+                        <div>
+                          <progress max={100} value={stat.base_stat} />
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
+
           {plainEvolutionChain && (
             <div>
               <span className="font-bold pr-2">{t('evolution')}</span>

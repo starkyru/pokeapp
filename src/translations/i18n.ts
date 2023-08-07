@@ -21,6 +21,7 @@ const resources = {
         moves: 'Moves:',
         spieces: 'Spieces:',
         sprites: 'Sprites:',
+        stats: 'Stats:',
       },
       search: 'Search »',
       searchfor: 'Searching for: ',

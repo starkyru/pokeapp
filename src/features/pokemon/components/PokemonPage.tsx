@@ -123,7 +123,7 @@ export const PokemonPage: React.FC = () => {
               {data.stats && data.stats.length ? (
                 <div>
                   <span className="font-bold pr-2">{t('stats')}</span>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2">
                     {data.stats.map((stat) => (
                       <>
                         <div key={stat.stat.name}>

@@ -1,5 +1,6 @@
 import ky from 'ky';
 import React, { useEffect, useMemo, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 
@@ -63,12 +64,17 @@ export const PokemonPage: React.FC = () => {
     return recursivelyExtractEvolutionChain(evolutionChain.chain);
   }, [evolutionChain]);
 
+  const formattedName = data ? formatName(data?.name) : '';
+
   return (
     <FetchWrapper isLoading={isLoading} isError={!!error}>
       {data && (
         <div>
+          <Helmet>
+            <title>Pokedex - {formattedName}</title>
+          </Helmet>
           <div className="flex justify-between">
-            <Header title={formatName(data.name)} align="left" />
+            <Header title={formattedName} align="left" />
             <Link to={'/'}>
               <Button title={t('back')} />
             </Link>

@@ -16,7 +16,7 @@ export async function fetchPokemon(offset: number, limit: number) {
     `${POKEMON_BASE_URL}pokemon/?limit=${limit}&offset=${offset}`,
   ).json();
 }
-export function* pokemonListSaga() {
+export function* pokemonListSaga(itemsPerPage: number = PAGE_SIZE) {
   let current = 0,
     shouldContinue;
   let list: NamedAPIResource[] = [];
@@ -25,9 +25,9 @@ export function* pokemonListSaga() {
       const result: NamedAPIResourceList = yield call(
         fetchPokemon,
         current,
-        PAGE_SIZE,
+        itemsPerPage,
       );
-      current += PAGE_SIZE;
+      current += itemsPerPage;
       shouldContinue = current < result.count;
       list = [...list, ...result.results];
     } while (shouldContinue);

@@ -38,7 +38,7 @@ const useStoreSearchString = () => {
   return storeSearchString;
 };
 
-const usePokemonSearch = () => {
+const usePokemonSearch = (itemsPerPage: number = ITEMS_PER_PAGE) => {
   const [page, setPage] = useState<number>(1);
 
   const filteredList = useSelector<RootState, NamedAPIResource[]>((state) =>
@@ -51,13 +51,13 @@ const usePokemonSearch = () => {
   }, [filteredList]);
 
   const visiblePokemon = useMemo(() => {
-    return filteredList.slice(0, ITEMS_PER_PAGE * page);
+    return filteredList.slice(0, itemsPerPage * page);
   }, [page, filteredList]);
 
   const loadMore = useCallback(() => {
     setPage((page) => page + 1);
   }, []);
-  const showLoadMore = page * ITEMS_PER_PAGE < filteredList.length;
+  const showLoadMore = page * itemsPerPage < filteredList.length;
   return { loadMore, page, showLoadMore, visiblePokemon };
 };
 

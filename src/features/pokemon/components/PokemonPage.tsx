@@ -71,7 +71,7 @@ export const PokemonPage: React.FC = () => {
   return (
     <FetchWrapper isLoading={isLoading} isError={!!error}>
       {data && (
-        <div>
+        <div className="w-full">
           <Helmet>
             <title>Pokedex - {formattedName}</title>
           </Helmet>
@@ -81,7 +81,7 @@ export const PokemonPage: React.FC = () => {
               <Button title={t('back')} />
             </Link>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap">
+          <div className="flex flex-wrap md:flex-nowrap ">
             <div className="w-full md:w-1/2 lg:w-1/3 aspect-square">
               {data.sprites.front_default && (
                 <img
@@ -91,7 +91,7 @@ export const PokemonPage: React.FC = () => {
                 />
               )}
             </div>
-            <div className="flex-1">
+            <div className="flex-1 flex flex-col md:ml-4">
               <PokemonPanel
                 isVisible={Boolean(data.abilities && data.abilities.length)}
                 title={t('abilities')}

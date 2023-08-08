@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '../../../components/Button';
+import { ArrayPager } from '../../../components/ArrayPager/ArrayPager';
 import { StatusFetchWrapper } from '../../../components/FetchWrapper';
 import {
-  useArrayPager,
   usePokemonListStatus,
   usePokemonSearch,
   useStoreSearchString,
@@ -19,7 +18,6 @@ export const PokemonListContainer: React.FC = memo(() => {
   const pokemonListStatus = usePokemonListStatus();
 
   const filteredList = usePokemonSearch();
-  const { loadMore, showLoadMore, visibleList } = useArrayPager(filteredList);
 
   return (
     <StatusFetchWrapper status={pokemonListStatus}>
@@ -29,10 +27,10 @@ export const PokemonListContainer: React.FC = memo(() => {
           {storeSearchString}
         </div>
       )}
-      {visibleList ? <PokemonList list={visibleList} /> : false}
-      {showLoadMore && (
-        <Button onClick={loadMore} title={t('loadmore')} className="m-2 px-6" />
-      )}
+      <ArrayPager
+        items={filteredList}
+        renderItems={(list) => <PokemonList list={list} />}
+      />
     </StatusFetchWrapper>
   );
 });

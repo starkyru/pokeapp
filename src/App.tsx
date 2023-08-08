@@ -16,7 +16,7 @@ const App: React.FC = () => {
         <title>Pokedex</title>
       </Helmet>
       <AppHeader />
-      <div className="bg-white p-2 py-6 md:p-8 rounded md:rounded-2xl">
+      <div className="bg-white p-2 py-6 md:p-8 rounded md:rounded-2xl flex flex-1 flex-col items-center">
         <Switch>
           <Route path="/pokemon/:pokemonName">
             <PokemonPage />

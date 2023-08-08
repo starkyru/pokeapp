@@ -12,7 +12,7 @@ type PokemonListItemProps = {
 const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
   const { data, error, isLoading } = useGetPokemonByNameQuery(name);
   return (
-    <div className="w-1/2 flex p-4 md:w-1/4 lg:w-1/6 hover:border-2 hover:p-2 rounded-2xl">
+    <div className="flex flex-1 p-1 hover:p-0 hover:border-2 rounded-3xl">
       <FetchWrapper
         isLoading={isLoading}
         isError={!!error}

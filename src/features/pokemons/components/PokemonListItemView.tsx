@@ -16,7 +16,7 @@ export const PokemonListItemView: React.FC<PokemonListItemViewProps> = ({
         className="flex flex-1 flex-col justify-between"
         to={`/pokemon/${data.name}`}
       >
-        <div className="flex-[1_0_auto] bg-gray-200 rounded-2xl p-2 min-w-[150px]">
+        <div className="flex-[1_0_auto] bg-gray-200 rounded-2xl aspect-square p-2 min-w-[150px]">
           {data.sprites.front_default && (
             <img
               className="resize object-contain w-full flex-1"

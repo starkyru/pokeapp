@@ -30,6 +30,7 @@ export const PokemonListContainer: React.FC = memo(() => {
       <ArrayPager
         items={filteredList}
         renderItems={(list) => <PokemonList list={list} />}
+        infinitiveScroll
       />
     </StatusFetchWrapper>
   );

@@ -16,9 +16,13 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ({ name }) => {
       <FetchWrapper
         isLoading={isLoading}
         isError={!!error}
-        LoadingComponent={PokemonListEmptyItem}
+        renderLoading={() => <PokemonListEmptyItem name={name} />}
       >
-        {data ? <PokemonListItemView data={data} /> : <PokemonListEmptyItem />}
+        {data ? (
+          <PokemonListItemView data={data} />
+        ) : (
+          <PokemonListEmptyItem name={name} />
+        )}
       </FetchWrapper>
     </div>
   );

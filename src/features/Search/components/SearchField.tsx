@@ -45,10 +45,10 @@ export const SearchField: React.FC = () => {
     [searchString],
   );
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-2">
       <input
         name="search"
-        className="rounded-2xl"
+        className="rounded-2xl min-w-[200px]"
         value={searchString}
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}

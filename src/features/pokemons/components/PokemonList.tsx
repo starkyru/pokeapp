@@ -13,7 +13,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ list }) => {
   return (
     <div className="flex flex-row flex-wrap justify-center mt-4">
       {list.length ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 gap-4">
           {list.map((item) => (
             <PokemonListItem name={item.name} key={item.name} />
           ))}

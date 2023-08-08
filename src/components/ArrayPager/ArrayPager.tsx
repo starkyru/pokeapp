@@ -23,7 +23,11 @@ export function ArrayPager<Item>({
     <>
       {visibleList ? renderItems(visibleList) : false}
       {showLoadMore && (
-        <Button onClick={loadMore} title={t('loadmore')} className="m-2 px-6" />
+        <Button
+          onClick={loadMore}
+          title={t('loadmore')}
+          className="m-2 mt-4 px-6"
+        />
       )}
     </>
   );

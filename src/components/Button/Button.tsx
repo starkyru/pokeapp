@@ -15,7 +15,10 @@ export const Button: React.FC<ButtonProps> = memo(
   ({ title, className, ...rest }) => {
     return (
       <button
-        className={cn('bg-gray-400 rounded-2xl px-3 py-2', className)}
+        className={cn(
+          'bg-gray-400 rounded-2xl px-3 py-2 hover:bg-gray-200',
+          className,
+        )}
         {...rest}
       >
         {title}

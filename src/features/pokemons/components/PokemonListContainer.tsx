@@ -22,7 +22,7 @@ export const PokemonListContainer: React.FC = memo(() => {
   return (
     <StatusFetchWrapper status={pokemonListStatus}>
       {storeSearchString && (
-        <div className="m-2">
+        <div className="m-2 mt-6">
           {t('searchfor')}
           {storeSearchString}
         </div>

@@ -5,7 +5,8 @@ Just a simple pokedex app.
 I just had some fun. A lot of things could be improved.
 Some of the stuff was coded the way it's coded just to show up skills.
 Styling and UX is minimal and could be improved as well.
-Pokemon TS classes were taken from `pokenode-ts`
+Pokemon TS classes were taken from `pokenode-ts`.
+The app is deployed here [https://pokeapp.dzhiubanskii.com](https://pokeapp.dzhiubanskii.com)
 
 ### Run:
 

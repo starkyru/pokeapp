@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from 'react';
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -35,7 +36,14 @@ export const SearchField: React.FC = () => {
   const handleSearch = useCallback(() => {
     dispatch(search(searchString));
   }, [searchString]);
-
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        dispatch(search(searchString));
+      }
+    },
+    [searchString],
+  );
   return (
     <div className="flex justify-center">
       <input
@@ -43,6 +51,7 @@ export const SearchField: React.FC = () => {
         className="rounded-2xl"
         value={searchString}
         onChange={handleSearchChange}
+        onKeyDown={handleKeyDown}
       />
       <Button onClick={handleSearch} className="ml-2" title={t('search')} />
     </div>

@@ -158,7 +158,11 @@ export const PokemonPage: React.FC = () => {
             )}
             title={t('evolution')}
           >
-            <div className={'flex flex-wrap'}>
+            <div
+              className={
+                'grid grid-cols-2  md:grid-cols-4 xl:grid-cols-6 gap-4 pt-2'
+              }
+            >
               {plainEvolutionChain.map((item) => (
                 <PokemonListItem key={item.name} name={item.name} />
               ))}

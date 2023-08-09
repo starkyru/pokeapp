@@ -138,13 +138,12 @@ export const PokemonPage: React.FC = () => {
                       <div key={stat.stat.name}>
                         {formatName(stat.stat.name)}:
                       </div>
-                      <div>
-                        <progress
-                          max={100}
-                          value={stat.base_stat}
-                          className="rounded-lg overflow-hidden"
-                        />
-                      </div>
+
+                      <progress
+                        max={100}
+                        value={stat.base_stat}
+                        className="rounded-lg overflow-hidden"
+                      />
                     </>
                   ))}
                 </div>

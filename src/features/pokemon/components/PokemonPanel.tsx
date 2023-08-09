@@ -10,9 +10,9 @@ export const PokemonPanel: React.FC<PokemonPanelProps> = ({
   children,
 }) => {
   return isVisible ? (
-    <div className="py-2">
-      <div className="font-bold pr-2 "> {title}</div>
+    <section className="py-2">
+      <div className="font-bold pr-2 ">{title}</div>
       <div className="pl-4">{children}</div>
-    </div>
+    </section>
   ) : null;
 };

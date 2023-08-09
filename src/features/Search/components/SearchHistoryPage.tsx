@@ -14,12 +14,12 @@ export const SearchHistoryPage: React.FC = () => {
     (state) => state.search.history,
   );
   return (
-    <div>
+    <>
       <Helmet>
         <title>Pokedex - Search History</title>
       </Helmet>
       <Header title={t('history')} />
-      <div className="flex flex-col items-center pt-4">
+      <section className="flex flex-col items-center pt-4">
         {history && history.length
           ? history.map((item, index) => (
               <Link
@@ -31,7 +31,7 @@ export const SearchHistoryPage: React.FC = () => {
               </Link>
             ))
           : t('history-empty')}
-      </div>
-    </div>
+      </section>
+    </>
   );
 };

@@ -36,6 +36,7 @@ export const SearchField: React.FC = () => {
   const handleSearch = useCallback(() => {
     dispatch(search(searchString));
   }, [searchString]);
+
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
@@ -44,6 +45,7 @@ export const SearchField: React.FC = () => {
     },
     [searchString],
   );
+
   return (
     <div className="flex justify-center mb-2">
       <input

@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Button } from '../../../components/Button';
 import { useAppDispatch } from '../../../store/storeHelpers';
+import { useDebounce } from '../../../utils/hooks/useDebouce';
 import { useSearchQuery } from '../hooks/useSearchQuery';
 import { search } from '../store/searchSlice';
 
@@ -14,6 +15,10 @@ export const SearchField: React.FC = () => {
   const history = useHistory();
   const searchString = useSearchQuery();
 
+  const debouncedSearch = useDebounce((searchValue) => {
+    dispatch(search(searchValue));
+  }, 300);
+
   const handleSearchChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event?.target;
@@ -22,6 +27,7 @@ export const SearchField: React.FC = () => {
         pathname: '/',
         search: params.toString(),
       });
+      debouncedSearch(value);
     },
     [],
   );
@@ -33,9 +39,10 @@ export const SearchField: React.FC = () => {
     }
   }, []);
 
-  const handleSearch = useCallback(() => {
-    dispatch(search(searchString));
-  }, [searchString]);
+  const handleSearch = useCallback(
+    () => dispatch(search(searchString)),
+    [searchString],
+  );
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
